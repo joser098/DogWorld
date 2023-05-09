@@ -9,7 +9,7 @@ const getAllDogs = async () => {
         const { data } = await axios(`https://api.thedogapi.com/v1/breeds/${randomId}`)
         dogs.push(data);
     }
-    console.log(dogs)
+    
     return dogs;
 };
 
