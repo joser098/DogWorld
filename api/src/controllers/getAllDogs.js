@@ -1,12 +1,16 @@
-const { Dog } = require('../db');
+// const { Dog } = require('../db');
 const axios = require('axios');
 
 const getAllDogs = async () => {
-    const dbDogs = await Dog.findAll();
-    const { data } = await axios('https://api.thedogapi.com/v1/breeds');
+    const dogs = [];
 
-    const allDogs = [...dbDogs, data];
-    return allDogs;
+    for(let i = 0; i < 8; i++){
+        const randomId = Math.floor(Math.random() * 264);
+        const { data } = await axios(`https://api.thedogapi.com/v1/breeds/${randomId}`)
+        dogs.push(data);
+    }
+    console.log(dogs)
+    return dogs;
 };
 
 
