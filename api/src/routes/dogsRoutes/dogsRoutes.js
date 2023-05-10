@@ -35,9 +35,9 @@ dogsRouter.get('/:id', async (req, res) => {
 
 dogsRouter.post('/', async (req, res) => {
    try {
-      const { name, height, weight, life_span, image } = req.body;
+      const { name, height, weight, life_span, image, temperaments } = req.body;
 
-      const newDog = await createNewDog({name, height, weight, life_span, image});
+      const newDog = await createNewDog({name, height, weight, life_span, image, temperaments});
 
       return res.status(200).json(newDog);
    } catch (error) {

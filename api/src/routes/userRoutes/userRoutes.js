@@ -1,6 +1,7 @@
 const userRoutes = require('express').Router();
 const createUser = require('../../controllers/userRoutesControllers/createUser');
 const updateData = require('../../controllers/userRoutesControllers/updateData');
+const addLike = require('../../controllers/userRoutesControllers/addLike');
 
 userRoutes.post('/', async (req, res) =>{
    try {
@@ -26,6 +27,14 @@ userRoutes.put('/', async (req, res) => {
       return res.status(500).json({ message: error.message });
    }
 });
+
+userRoutes.post('/like', async (req, res) => {
+   const { userId, dogId } = req.body;
+
+   const postLike = await addLike(userId, dogId);
+
+   return res.status(200).send(postLike);
+})
 
 
 

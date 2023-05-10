@@ -4,8 +4,13 @@ const getAllTemperaments = require('../../helper/getAllTemperaments');
 
 const temperamentToDb = async () => {
     try {
+        // Primero debemos validar que los datos ya estan cargados en la DB sino habra confliccto por duplicado y rompera el servidor
+        const checkDB = await Temperament.findAll();
+        if(checkDB.length !== 0) return `Temperaments are already in DB`;
+        
+        // Una vez validado que no estan cargados en la DB podemos anadir para luego utilizar desde alli
         const allTemperaments = await getAllTemperaments();
-    
+
         allTemperaments.map(async (name) => {
             await Temperament.create({ name })
         })
