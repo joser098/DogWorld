@@ -1,4 +1,4 @@
-const { Dog } = require('../db');
+const { Dog } = require('../../db');
 const axios = require('axios');
 
 const getDogById = async (id) => {

@@ -1,9 +1,9 @@
 const axios = require('axios');
-const { Dog } = require('../db');
+const { Dog } = require('../../db');
 const { Op } = require('sequelize');
 
 //helper
-const toUpperCase = require('../helper/toUpperCase');
+const toUpperCase = require('../../helper/toUpperCase');
 
 const getDogByName = async (name) => {
     const nameCapitalied = toUpperCase(name);

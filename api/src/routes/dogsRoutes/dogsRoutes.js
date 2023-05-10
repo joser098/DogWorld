@@ -1,8 +1,8 @@
 const dogsRouter = require('express').Router();
-const getAllDogs = require('../../controllers/getAllDogs');
-const getDogById = require('../../controllers/getDogById');
-const createNewDog = require('../../controllers/createNewDog');
-const getDogByName = require('../../controllers/getDogByName');
+const getAllDogs = require('../../controllers/dogRoutesControls/getAllDogs');
+const getDogById = require('../../controllers/dogRoutesControls/getDogById');
+const createNewDog = require('../../controllers/dogRoutesControls/createNewDog');
+const getDogByName = require('../../controllers/dogRoutesControls/getDogByName');
 
 
 dogsRouter.get('/', async (req, res) =>{
