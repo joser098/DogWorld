@@ -1,15 +1,14 @@
-const axios = require('axios');
-const addTempsToArray = require('../../helper/addTempsToArray');
-
-const getAllTemperaments = async () => {
+const axios = require('axios')
+const  getAllTemperaments = async () => {
     const  { data }  = await axios(`https://api.thedogapi.com/v1/breeds`);
+
     let allTemps = [];
-
-     data.forEach(async (dog) => {
+    
+    data.map(async (dog) => {
         let dogTemps = dog.temperament;
-        let array = addTempsToArray(dogTemps);
+        let array = dogTemps?.split(', ');
 
-        array.forEach((temp) => {
+        array?.map((temp) => {
             if(!allTemps.includes(temp)){
                 allTemps.push(temp)
             }
@@ -17,6 +16,6 @@ const getAllTemperaments = async () => {
     })
     
     return allTemps;
-}
+};
 
 module.exports = getAllTemperaments;
