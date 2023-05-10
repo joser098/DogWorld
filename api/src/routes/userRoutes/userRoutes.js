@@ -2,6 +2,7 @@ const userRoutes = require('express').Router();
 const createUser = require('../../controllers/userRoutesControllers/createUser');
 const updateData = require('../../controllers/userRoutesControllers/updateData');
 const addLike = require('../../controllers/userRoutesControllers/addLike');
+const removeLike = require('../../controllers/userRoutesControllers/removeLike');
 
 userRoutes.post('/', async (req, res) =>{
    try {
@@ -34,9 +35,15 @@ userRoutes.post('/like', async (req, res) => {
    const postLike = await addLike(userId, dogId);
 
    return res.status(200).send(postLike);
+});
+
+userRoutes.delete('/like', async (req, res) => {
+   const { userId, dogId } = req.body;
+
+   const deleteLike = await removeLike(userId, dogId);
+
+   return res.status(200).send(deleteLike);
 })
-
-
 
 
 

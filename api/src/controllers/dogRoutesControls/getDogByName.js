@@ -6,24 +6,25 @@ const { Op } = require('sequelize');
 const toUpperCase = require('../../helper/toUpperCase');
 
 const getDogByName = async (name) => {
+    // Primero formateamos el input al formato en el que los datos estan guardados para matchear mejor
     const nameCapitalied = toUpperCase(name);
 
-     const dogFound = await Dog.findAll({
+    //Bucasmos primero en DB todos los Dogs que matcheen con el input recibido.
+     const dogsFoundInDB = await Dog.findAll({
         where: { 
             name:{ [Op.like]: `%${nameCapitalied}%`
         }
-    }
-});
+    }});
 
-    if(dogFound.length === 0){
-        const { data } = await axios(`https://api.thedogapi.com/v1/breeds/search?q=${nameCapitalied}`);
+    // Luego buscamos en api todos los Dogs que matcheen con el input recibido.
+     const { data }  = await axios(`https://api.thedogapi.com/v1/breeds/search?q=${nameCapitalied}`);
 
-        if(Object.keys(data).length === 0) throw Error('this name does not exist');
-        
-        return data;
-    };
+    // Dependiendo de lo obtenido de cada una daremos una respuesta respuesta adecuada. 
+    if(dogsFoundInDB.length === 0 && data.length !== 0) return data;
+    if(dogsFoundInDB.length !== 0 && data.length === 0) return dogsFoundInDB;
+    if(dogsFoundInDB.length !== 0 && data.length !== 0) return [...dogsFoundInDB, ...data];
 
-    return dogFound;
+    return `This name does not exits`;
 }
 
 
