@@ -12,11 +12,4 @@ temperamentsRouter.get('/', async (req, res) =>{
 
 
 
-
-
-
-
-
-
-
 module.exports = temperamentsRouter;
