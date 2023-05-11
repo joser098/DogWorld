@@ -8,7 +8,7 @@ const addLike = async (userId, dogId) => {
     
      if(regex.test(dogId)){
          userFound.addDog(dogId);
-         return userFound;
+         return `Like added successfyly`;
         }; 
         
         const { data } = await axios(`https://api.thedogapi.com/v1/breeds/${dogId}`);
@@ -26,7 +26,7 @@ const addLike = async (userId, dogId) => {
         const newDog = await Dog.findOne({ where: { apiId: dogId}});
         userFound.addDog(newDog.id);
 
-        return userFound;
+        return `Like added successfyly`;
 };
 
 

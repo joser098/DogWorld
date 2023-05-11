@@ -3,7 +3,7 @@ const temperamentToDb = require('../controllers/temperamentsControls/temperament
 const getTemperaments = async (req, res) =>{
     try {
         const allTemperaments = await temperamentToDb();
-        return res.status(200).json(allTemperaments);
+        return res.status(200).json({message: allTemperaments});
     } catch (error) {
         return res.status(500).json({message: error.message})
     }

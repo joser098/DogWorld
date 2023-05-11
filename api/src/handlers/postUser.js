@@ -6,7 +6,7 @@ const postUser =  async (req, res) =>{
       
       const newUser =  await createUser(name, email, password);
 
-      return res.status(200).send(newUser);
+      return res.status(200).json(newUser);
    } catch (error) {
       return res.status(500).json({ message: error.message });
    }
