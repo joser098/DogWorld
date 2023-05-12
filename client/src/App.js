@@ -15,7 +15,7 @@ const location = useLocation();
       <Routes>
         <Route path='/' element={<Login/>}/>
         <Route path='register' element={<Register/>}/>
-        <Route path='home/:page' element={<Home/>}/>
+        <Route path='home' element={<Home/>}/>
         <Route path='Account' element={<Account/>}/>
         <Route path='newdog' element={<DogForm/>}/>
       </Routes>

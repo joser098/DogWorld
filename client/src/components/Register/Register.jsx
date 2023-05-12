@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
-import { handleChange, handleSubmit } from "./RegisterHelp";
+import { handleChange, handleSubmit } from "./RegisterHandlers";
 
 const Register = () => {
     const navigate = useNavigate();

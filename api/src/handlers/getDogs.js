@@ -1,16 +1,15 @@
-const getAllDogs = require('../controllers/dogRoutesControls/getAllDogs');
-const getDogByName = require('../controllers/dogRoutesControls/getDogByName');
+const getAllOrByName = require('../controllers/dogRoutesControls/getAllOrByName');
 
 const getDogs = async (req, res) =>{
    try {
 
       const { name } = req.query;
       if(name){
-         const dogName = await getDogByName(name);
+         const dogName = await getAllOrByName(name);
          return res.status(200).json(dogName);
       }
 
-      const allDogs = await getAllDogs();
+      const allDogs = await getAllOrByName();
       return res.status(200).json(allDogs);
 
    } catch (error) {
