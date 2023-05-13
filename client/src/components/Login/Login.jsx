@@ -1,7 +1,12 @@
 import { useState } from "react";
-import { handleChange } from './loginHandlers';
+import { handleChange, handleSubmit } from './loginHandlers';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../redux/actions';
 
 const Login = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [ userData, setUserData ] = useState({
         email: '',
         password: ''
@@ -14,6 +19,10 @@ const Login = () => {
 
     const handleInputChange = (event) => {
         handleChange(event, userData, setUserData)
+    };
+
+    const handlebuttonSubmit = (event) => {
+        handleSubmit(event, userData, navigate, dispatch, setUser);
     };
 
     return(
@@ -31,7 +40,7 @@ const Login = () => {
                        placeholder="Password"
                        value={userData.password}
                        onChange={handleInputChange}/>
-                <button>Log In</button>
+                <button onClick={handlebuttonSubmit}>Log In</button>
 
                 <label>Don't have an account</label>
                 <a href="/register">Register</a>
