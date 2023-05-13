@@ -1,16 +1,21 @@
 import { useState, useEffect } from 'react';
-import { fetch, cardsPerPage, nextHandler, prevHandler } from './homeHandlers';
+import { fetch, nextHandler, prevHandler, firstShow } from './homeHandlers';
 import DogCard from '../DogCard/DogCard';
 
 const Home = () => {
     const [ dogs, setDogs ] = useState([]);
-    const [ cardsToShow, setCardsToShow ] = useState([...dogs].splice(0, cardsPerPage));
+    const [ cardsToShow, setCardsToShow ] = useState([]);
     const [ currentPage, setCurrentPage ] = useState(0);
 
-    console.log(cardsToShow);
+    
     useEffect(() => {
         fetch(setDogs) 
     }, []);
+
+    useEffect(() => {
+        firstShow(dogs, setCardsToShow)
+    }, [dogs])
+
 
     const nextButtonHandler = () => {
         nextHandler(dogs, currentPage, setCardsToShow, setCurrentPage);

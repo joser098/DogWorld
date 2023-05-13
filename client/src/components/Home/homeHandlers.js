@@ -35,7 +35,7 @@ export const prevHandler = (dogs, currentPage, setCardsToShow, setCurrentPage) =
 };
 
 export const firstShow = (dogs, setCardsToShow) => {
-    setCardsToShow([...dogs].splice(0, cardsPerPage))
+    setCardsToShow([...dogs].slice(0, cardsPerPage))
 }
 
 
