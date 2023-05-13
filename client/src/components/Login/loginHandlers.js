@@ -18,8 +18,9 @@ export const handleSubmit = async (event, userData, navigate, dispatch, action) 
         const { access, userFound } = data;
         
         dispatch(action(userFound));
-
-        navigate('/home')     
+        // window.localStorage.setItem('session', access);
+        // console.log(localStorage);
+        navigate('/home');     
     } catch (error) {
         window.confirm(`Check info provided is correct and be sure you're registered`);
     }

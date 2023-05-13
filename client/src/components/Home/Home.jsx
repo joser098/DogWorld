@@ -1,11 +1,18 @@
 import { useState, useEffect } from 'react';
 import { fetch, nextHandler, prevHandler, firstShow } from './homeHandlers';
 import DogCard from '../DogCard/DogCard';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const [ dogs, setDogs ] = useState([]);
     const [ cardsToShow, setCardsToShow ] = useState([]);
     const [ currentPage, setCurrentPage ] = useState(0);
+    const navigate = useNavigate();
+
+//     const session = window.localStorage.getItem('session');
+//     useEffect(() => {
+//       !session && navigate('/')
+//   }, [session]);
 
     
     useEffect(() => {

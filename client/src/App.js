@@ -8,16 +8,13 @@ import Nav from './components/Nav/Nav';
 import Account from './components/Account/Account';
 import DogForm from './components/DogForm/DogForm';
 import Detail from './components/Detail/Detail';
-import { useSelector } from 'react-redux';
-
 
 function App() {
-  const navigate = useNavigate();
-  const state = useSelector(state => state.user);
+  // let session = window.localStorage.getItem('session');
 
 //   useEffect(() => {
-//     !state.session && navigate('/')
-// }, [state]);
+//     console.log(session)
+// }, [session]);
 
   const location = useLocation();
   return (
@@ -26,6 +23,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Login/>}/>
         <Route path='register' element={<Register/>}/>
+
         <Route path='home' element={<Home/>}/>
         <Route path='Account' element={<Account/>}/>
         <Route path='newdog' element={<DogForm/>}/>

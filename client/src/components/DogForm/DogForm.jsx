@@ -1,4 +1,21 @@
+import { useEffect, useState } from "react";
+import { getTemperaments } from "./dogFormHandlers";
+
 const DogForm = () => {
+    const [ temperaments, setTemperaments] = useState();
+    const [ dogToCreate, setDogToCreate ] = useState({
+        name: '',
+        height: '',
+        weight: '',
+        life_span: '',
+        temperaments: ''
+    });
+
+
+    useEffect(() => {
+        // getTemperaments();
+    }, [])
+
     return(
         <div>
             <h3>Create a new dog to share it</h3>
@@ -20,7 +37,7 @@ const DogForm = () => {
             <label htmlFor="temperaments">Temperaments</label>
             <select>
                 {
-                    //peticion a api de temperaments
+                    // crear selects por cada temperamento
                 }
             </select>
             

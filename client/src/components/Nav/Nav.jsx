@@ -9,6 +9,8 @@ const Nav = () => {
 
     const handleLogOut = () => {
         dispatch(logOut())
+        window.localStorage.setItem('session', false);
+        console.log(localStorage);
     };
 
 
