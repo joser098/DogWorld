@@ -1,4 +1,4 @@
-import { SET_USER } from "./actionsTypes";
+import { LOG_OUT, SET_USER } from "./actionsTypes";
 
 const initialState = {
     user: {
@@ -22,7 +22,18 @@ const reducer = (state = initialState, { type, payload }) => {
                 userEmail: payload.email,
                 // userLikes: payload.userLikes
             }
-        }
+        };
+        case LOG_OUT:
+            return {
+                ...state,
+                user: {
+                    session: false,
+                    userId: '',
+                    userName: '',
+                    userEmail: '',
+                    // userLikes: []
+                }
+            };
         default:
             return {...state}
     }

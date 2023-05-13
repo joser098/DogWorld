@@ -10,13 +10,16 @@ const getDogById = async (id) => {
         if(!dogFound) throw Error('this Id does not exist in DB');
 
         return dogFound;
-    } 
+    }; 
     
     // Caso contrario buscamos en api
     const { data } = await axios(`https://api.thedogapi.com/v1/breeds/${id}`);
+    
+    const img = await axios(`https://api.thedogapi.com/v1/images/${data.reference_image_id}`);
+
     if(Object.keys(data).length === 0) throw Error('this Id does not exist in api')
     
-    return data;
-}
+    return [data, img.data];
+};
 
 module.exports = getDogById;

@@ -1,25 +1,35 @@
 import { NavLink } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
+import { useDispatch } from "react-redux";
+import { logOut } from "../../redux/actions";
+
 
 const Nav = () => {
+    const dispatch = useDispatch();
+
+    const handleLogOut = () => {
+        dispatch(logOut())
+    };
+
+
     return(
         <div>
             <SearchBar/>
 
             <NavLink to='home'>
-                Home
+                <button> Home </button>
             </NavLink>
 
             <NavLink to='newdog'>
-                Create
+                <button> Create </button>
             </NavLink>
 
-            <NavLink to='profile'>
-                Account
+            <NavLink to='Account'>
+                <button> Account </button>
             </NavLink>
 
             <NavLink to='/'>
-                Log Out
+               <button onClick={handleLogOut}> Log Out </button> 
             </NavLink>
 
         </div>
