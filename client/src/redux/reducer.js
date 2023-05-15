@@ -7,7 +7,8 @@ const initialState = {
         userName: '',
         userEmail: '',
         // userLikes: []
-    }
+    },
+    temperaments: []
 };
 
 const reducer = (state = initialState, { type, payload }) => {

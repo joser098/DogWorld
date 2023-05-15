@@ -10,11 +10,9 @@ import DogForm from './components/DogForm/DogForm';
 import Detail from './components/Detail/Detail';
 
 function App() {
-  // let session = window.localStorage.getItem('session');
-
 //   useEffect(() => {
-//     console.log(session)
-// }, [session]);
+    
+// }, []);
 
   const location = useLocation();
   return (
@@ -23,7 +21,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Login/>}/>
         <Route path='register' element={<Register/>}/>
-
         <Route path='home' element={<Home/>}/>
         <Route path='Account' element={<Account/>}/>
         <Route path='newdog' element={<DogForm/>}/>
