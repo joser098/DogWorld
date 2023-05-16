@@ -21,6 +21,7 @@ const Home = () => {
 
     useEffect(() => {
         firstShow(dogs, setCardsToShow)
+        console.log(cardsToShow)
     }, [dogs])
 
 
