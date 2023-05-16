@@ -1,4 +1,4 @@
-const { Dog } = require('../../db');
+const { Dog, Temperament } = require('../../db');
 const axios = require('axios');
 
 const getDogById = async (id) => {
@@ -6,7 +6,7 @@ const getDogById = async (id) => {
 
     // Primero comprobamos si es formato UUID para buscar en DB 
     if(regex.test(id)){
-        const dogFound = await Dog.findByPk(id); 
+        const dogFound = await Dog.findByPk(id, {include: Temperament}); 
         if(!dogFound) throw Error('this Id does not exist in DB');
 
         const dogToShow ={
@@ -21,6 +21,7 @@ const getDogById = async (id) => {
             weight: {
                 metric: dogFound.weight
             },
+            temperament: `${dogFound.Temperaments.map(temperament => temperament.name)}`,
             life_span: dogFound.life_span
         };
 

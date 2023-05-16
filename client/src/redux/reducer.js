@@ -1,4 +1,4 @@
-import { LOG_OUT, SET_USER } from "./actionsTypes";
+import { FILTER, GET_DOGS, LOG_OUT, ORDER, SET_USER } from "./actionsTypes";
 
 const initialState = {
     user: {
@@ -8,7 +8,8 @@ const initialState = {
         userEmail: '',
         // userLikes: []
     },
-    temperaments: []
+    allDogs: [],
+    dogsToShow: []
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -35,6 +36,29 @@ const reducer = (state = initialState, { type, payload }) => {
                     // userLikes: []
                 }
             };
+        case GET_DOGS:
+            return {
+                ...state,
+                allDogs: payload,
+                dogsToShow: payload
+            }; 
+        case FILTER:
+            return {
+                ...state,
+                dogsToShow: 
+                payload === 'API'
+                ? state.allDogs.filter(dog =>  Object.keys(dog).length > 5)
+                : state.allDogs.filter(dog =>  Object.keys(dog).length <= 5)
+            };
+        case ORDER:
+            const dogsToShowCopy = [...state.dogsToShow]
+            return {
+                ...state,
+                dogsToShow: 
+                payload === 'A'
+                ? dogsToShowCopy.sort((a, b) => a.id - b.id)
+                : dogsToShowCopy.sort((a, b) => b.id - a.id)
+            }        
         default:
             return {...state}
     }

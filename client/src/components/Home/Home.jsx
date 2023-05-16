@@ -1,41 +1,60 @@
 import { useState, useEffect } from 'react';
-import { fetch, nextHandler, prevHandler, firstShow } from './homeHandlers';
+import { nextHandler, prevHandler, firstShow, handleFilter, handleOrder } from './homeHandlers';
 import DogCard from '../DogCard/DogCard';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector} from 'react-redux';
+import { getDogs, filterDogs, orderDogs } from '../../redux/actions'; 
+
 
 const Home = () => {
-    const [ dogs, setDogs ] = useState([]);
+    const dispatch = useDispatch();
+    const allDogs = useSelector(state => state.dogsToShow);
     const [ cardsToShow, setCardsToShow ] = useState([]);
     const [ currentPage, setCurrentPage ] = useState(0);
-    const navigate = useNavigate();
-
-//     const session = window.localStorage.getItem('session');
-//     useEffect(() => {
-//       !session && navigate('/')
-//   }, [session]);
+ 
 
     
     useEffect(() => {
-        fetch(setDogs) 
+        dispatch(getDogs());
     }, []);
 
     useEffect(() => {
-        firstShow(dogs, setCardsToShow)
-        console.log(cardsToShow)
-    }, [dogs])
+        firstShow(allDogs, setCardsToShow)
+    }, [allDogs])
 
 
     const nextButtonHandler = () => {
-        nextHandler(dogs, currentPage, setCardsToShow, setCurrentPage);
-    }
+        nextHandler(allDogs, currentPage, setCardsToShow, setCurrentPage);
+    };
     
     const prevButtonHandler = () => {
-        prevHandler(dogs, currentPage, setCardsToShow, setCurrentPage);
-    }
+        prevHandler(allDogs, currentPage, setCardsToShow, setCurrentPage);
+    };
     
+    const handleSelectFilter = (event) => {
+        const { value } = event.target;
+        dispatch(filterDogs(value));
+    };
+
+    const handleSelectOrder = (event) => {
+        const { value } = event.target;
+        dispatch(orderDogs(value))
+    };
     
     return(
         <div>
+             <select onChange={handleSelectFilter}> 
+                <option value="API">Dogs from api</option>
+                <option value="DB">Dogs from DB</option>
+             </select>
+
+             <select onChange={handleSelectOrder}>
+                <option value="A">Ascendente</option>
+                <option value="D">Descendente</option>
+                <option value="AxW">Min weight</option>
+                <option value="DxW">Max weight</option>
+             </select>
+
             {
                 cardsToShow.map(({id, image, name, weight, temperament}) => {
                    return (

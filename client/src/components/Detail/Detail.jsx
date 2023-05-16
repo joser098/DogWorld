@@ -18,6 +18,7 @@ const Detail = () => {
             <h4>Name: {dog[0]?.name || dog.name}</h4>
             <h4>Height: {dog[0]?.height?.metric || dog.height?.metric} cm</h4>
             <h4>Weight: {dog[0]?.weight?.metric || dog.weight?.metric} kg</h4>
+            <h4>Temperaments: {dog[0]?.temperament || dog?.temperament}</h4>
             <h4>Life Span: {dog[0]?.life_span || dog.life_span}</h4>
         </div>
     )

@@ -5,9 +5,7 @@ const axios = require('axios');
 const getAllOrByName = async (name) => {
     
     if(!name){
-        const dogsFound = await Dog.findAll({
-            include: Temperament
-        });
+        const dogsFound = await Dog.findAll({ include: Temperament });
 
         const dogsFoundInDB = []; 
         

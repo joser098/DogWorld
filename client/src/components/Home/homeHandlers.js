@@ -1,17 +1,9 @@
 import axios from 'axios';
 
 export const cardsPerPage = 8;
-export const fetch = async (setDogs) => {
-            try {
-                const {data} = await axios(`http://localhost:3001/dogs`);
-                setDogs(data)
-            } catch (error) {
-                console.log(error)
-            }
-        };
 
-export const nextHandler = (dogs, currentPage, setCardsToShow, setCurrentPage) => {
-    const totalDogs = dogs.length;
+export const nextHandler = (allDogs, currentPage, setCardsToShow, setCurrentPage) => {
+    const totalDogs = allDogs.length;
     
     const nextPage = currentPage + 1;
 
@@ -19,23 +11,31 @@ export const nextHandler = (dogs, currentPage, setCardsToShow, setCurrentPage) =
 
     if(firstCard >= totalDogs) return;
 
-    setCardsToShow([...dogs].splice(firstCard, cardsPerPage));
+    setCardsToShow([...allDogs].splice(firstCard, cardsPerPage));
     setCurrentPage(nextPage);
 };
 
-export const prevHandler = (dogs, currentPage, setCardsToShow, setCurrentPage) => {
+export const prevHandler = (allDogs, currentPage, setCardsToShow, setCurrentPage) => {
     const prevPage = currentPage - 1;
 
     if( prevPage < 0) return;
 
     const firstCard = prevPage * cardsPerPage;
 
-    setCardsToShow([...dogs].splice(firstCard, cardsPerPage));
+    setCardsToShow([...allDogs].splice(firstCard, cardsPerPage));
     setCurrentPage(prevPage);
 };
 
-export const firstShow = (dogs, setCardsToShow) => {
-    setCardsToShow([...dogs].slice(0, cardsPerPage))
-}
+export const firstShow = (allDogs, setCardsToShow) => {
+    setCardsToShow([...allDogs].slice(0, cardsPerPage))
+};
+
+export const handleFilter = (event) => {
+
+};
+
+export const handleOrder = () => {
+
+};
 
 
