@@ -9,7 +9,22 @@ const getDogById = async (id) => {
         const dogFound = await Dog.findByPk(id); 
         if(!dogFound) throw Error('this Id does not exist in DB');
 
-        return dogFound;
+        const dogToShow ={
+            id: dogFound.id,
+            image: {
+                url: dogFound.image
+            },
+            name: dogFound.name,
+            height: {
+                metric: dogFound.height
+            },
+            weight: {
+                metric: dogFound.weight
+            },
+            life_span: dogFound.life_span
+        };
+
+        return dogToShow;
     }; 
     
     // Caso contrario buscamos en api

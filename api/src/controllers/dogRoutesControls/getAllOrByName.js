@@ -31,7 +31,7 @@ const getAllOrByName = async (name) => {
 
         if(dogsFoundInDB.length === 0 && data.length !== 0) return data;
         if(dogsFoundInDB.length !== 0 && data.length === 0) return dogsFoundInDB;
-        if(dogsFoundInDB.length !== 0 && data.length !== 0) return [...dogsFoundInDB, data];
+        if(dogsFoundInDB.length !== 0 && data.length !== 0) return dogsFoundInDB.concat(data);
         throw Error('There is not dogs');
     };
     
@@ -45,7 +45,7 @@ const getAllOrByName = async (name) => {
 
     if(dogsFoundInDB.length === 0 && data.length !== 0) return data;
     if(dogsFoundInDB.length !== 0 && data.length === 0) return dogsFoundInDB;
-    if(dogsFoundInDB.length !== 0 && data.length !== 0) return [...dogsFoundInDB, data];
+    if(dogsFoundInDB.length !== 0 && data.length !== 0) return dogsFoundInDB.concat(data);
 
     return `There is not dogs with ${name}`;
 };
