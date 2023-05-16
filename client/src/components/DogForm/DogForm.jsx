@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { getTemperaments, handleChange } from "./dogFormHandlers";
+import { getTemperaments, handleChange, handleTempsToShow, handleSubmitButton, disableSubmit } from "./dogFormHandlers";
 
 
 const DogForm = () => {
+    const [ tempSelected, setTempSelected ] = useState('')
     const [ tempsToShow, setTempsToShow ] = useState([])
     const [ temperaments, setTemperaments] = useState([]);
-    const [ tempsSelected, setTempsSelected ] = useState([]);
     const [ dogToCreate, setDogToCreate ] = useState({
         name: '',
         height_min: '',
@@ -14,6 +14,7 @@ const DogForm = () => {
         weight_max: '',
         life_span_min: '',
         life_span_max: '',
+        image: '',
         temperaments: []
     });
 
@@ -21,17 +22,21 @@ const DogForm = () => {
         handleChange(event, setDogToCreate, dogToCreate)
     };
 
-    const handleChangeAddButton = (option) => {
-        setDogToCreate({
+    const handleChangeAddButton = (event) => {
+        event.preventDefault();
+
+        setDogToCreate((dogToCreate) => ({
             ...dogToCreate,
-            temperaments: [...dogToCreate.temperaments, option]
-        });
+            temperaments: [...dogToCreate.temperaments, tempSelected ]
+        }));
 
-        // const tempFound = temperaments.find(temp => temp.id === +option);
-        // setTempsToShow([...tempsToShow, tempFound.name]);
+        handleTempsToShow(tempSelected, setTempsToShow, tempsToShow, temperaments);
+    };
 
-        console.log(dogToCreate)
-    }
+    const handleSubmitCreateButton = (event) => {
+        event.preventDefault();
+        handleSubmitButton(dogToCreate, setDogToCreate, setTempsToShow);
+    };
 
 
     useEffect(() => {
@@ -39,8 +44,6 @@ const DogForm = () => {
         return () => {
             setTemperaments([])}
     }, []);
-
-
 
     return(
         <div>
@@ -60,19 +63,27 @@ const DogForm = () => {
             <input onChange={handleInputChange} value={dogToCreate.life_span_min} name="life_span_min" type="number" min='7' max='15'/>
             <input onChange={handleInputChange} value={dogToCreate.life_span_max} name="life_span_max" type="number" min='8' max="20"/>
 
+            <label htmlFor="image">Image</label>
+            <input onChange={handleInputChange} value={dogToCreate.image} name="image" type="url" placeholder="url image" />
+
+
             <label htmlFor="temperaments">Temperaments</label>
-            <select id='options'>
+            <select name="select" onChange={(event) => { setTempSelected(event.target.value) }} >
                 {
                     temperaments?.map((temp) => {
                         return(
-                        <option value={temp.id} id={temp.name}>{temp.name}</option>
+                        <option value={temp.id} key={temp.name}>{temp.name}</option>
                         )
                     })
                 }
             </select>
-            <button onClick={() => handleChangeAddButton(document.getElementById('options').value)}>Add Temperament</button>
+
+            <button onClick={handleChangeAddButton} disabled={!tempSelected}>Add Temperament</button>
             
-            <button>Create</button>
+
+            { tempsToShow.length > 0 ? <h5>Temperaments: {tempsToShow}</h5> :null}
+            <button onClick={handleSubmitCreateButton} 
+                    disabled={!disableSubmit(dogToCreate)} >Create</button>
         </div>
     )
 };
