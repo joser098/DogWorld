@@ -69,8 +69,8 @@ const DogForm = () => {
             {errors.height_max && <p>{errors.height_max}</p>}
 
             <label htmlFor="weight">Min and max weight in kg</label>
-            <input onChange={handleInputChange} value={dogToCreate.weight_min} name="weight_min" type="number" min='1' max='35'/>
-            <input onChange={handleInputChange} value={dogToCreate.weight_max} name="weight_max" type="number" min='5' max="80"/>
+            <input onChange={handleInputChange} value={dogToCreate.weight_min} name="weight_min" type="number" min='1' max='60'/>
+            <input onChange={handleInputChange} value={dogToCreate.weight_max} name="weight_max" type="number" min='3' max="90"/>
             {errors.weight_min && <p>{errors.weight_min}</p>}
             {errors.weight_max && <p>{errors.weight_max}</p>}
 

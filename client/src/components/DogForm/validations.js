@@ -29,14 +29,14 @@ export const validations = (dogToCreate) => {
     if(!dogToCreate.weight_min || !/^[0-9]+$/.test(dogToCreate.weight_min)){
         errors.weight_min = 'Minimun weight should not be empty and should be numbers' 
     }
-    if(dogToCreate.weight_min < 1 || dogToCreate.weight_min > 35){
-        errors.weight_min = 'Minimun weight should be between 1 and 35' 
+    if(dogToCreate.weight_min < 1 || dogToCreate.weight_min > 60){
+        errors.weight_min = 'Minimun weight should be between 1 and 60' 
     };
     if(!dogToCreate.weight_max || !/^[0-9]+$/.test(dogToCreate.weight_max)){
         errors.weight_max = 'Maximun weight should not be empty and should be numbers' 
     };
-    if(dogToCreate.weight_max < 5 || dogToCreate.weight_max > 80){
-        errors.weight_max = 'Maximun weight should be between 5 and 80' 
+    if(dogToCreate.weight_max < 3 || dogToCreate.weight_max > 90){
+        errors.weight_max = 'Maximun weight should be between 3 and 90' 
     };
 
     // Life span

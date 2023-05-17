@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { orderAsc, orderAscW, orderDsc, orderDscW } from '../../redux/actions';
 
 export const cardsPerPage = 8;
 
@@ -34,7 +35,11 @@ export const handleFilter = (event) => {
 
 };
 
-export const handleOrder = () => {
+export const handleOrder = (value, dispatch) => {
+    if(value === 'A'){ dispatch(orderAsc())}
+    if(value === 'D'){ dispatch(orderDsc())}
+    if(value === 'AxW'){ dispatch(orderAscW())}
+    if(value === 'DxW'){ dispatch(orderDscW())}
 
 };
 

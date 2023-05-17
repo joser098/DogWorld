@@ -3,7 +3,7 @@ import { nextHandler, prevHandler, firstShow, handleFilter, handleOrder } from '
 import DogCard from '../DogCard/DogCard';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
-import { getDogs, filterDogs, orderDogs } from '../../redux/actions'; 
+import { getDogs, filterDogs} from '../../redux/actions'; 
 
 
 const Home = () => {
@@ -38,7 +38,7 @@ const Home = () => {
 
     const handleSelectOrder = (event) => {
         const { value } = event.target;
-        dispatch(orderDogs(value))
+        handleOrder(value, dispatch)
     };
     
     return(

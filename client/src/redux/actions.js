@@ -1,4 +1,4 @@
-import { SET_USER, LOG_OUT, GET_DOGS, FILTER, ORDER, SHOW_RESULT } from './actionsTypes'
+import { SET_USER, LOG_OUT, GET_DOGS, FILTER, SHOW_RESULT, ORDER_ASC, ORDER_DSC, ORDER_ASC_W, ORDER_DSC_W } from './actionsTypes'
 import axios from 'axios';
 
 export const setUser = (user) => {
@@ -21,16 +21,29 @@ export const getDogs = () => {
     }
 };
 
+export const showResult = (result) => {
+    return { type: SHOW_RESULT, payload: result }
+};
+
 export const filterDogs = (dogsFrom) => {
     return { type: FILTER, payload: dogsFrom }
 };
 
 
-export const orderDogs = (order) => {
-    return { type: ORDER, payload: order }
+export const orderAsc = () => {
+    return { type: ORDER_ASC, payload: null }
 };
 
-export const showResult = (result) => {
-    return { type: SHOW_RESULT, payload: result }
+export const orderDsc = () => {
+    return { type: ORDER_DSC, payload: null }
 };
+
+export const orderAscW = () => {
+    return { type: ORDER_ASC_W, payload: null }
+};
+
+export const orderDscW = () => {
+    return { type: ORDER_DSC_W, payload: null }
+};
+
 

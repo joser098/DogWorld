@@ -1,4 +1,4 @@
-import { FILTER, GET_DOGS, LOG_OUT, ORDER, SET_USER, SHOW_RESULT } from "./actionsTypes";
+import { FILTER, GET_DOGS, LOG_OUT, ORDER_ASC, ORDER_ASC_W, ORDER_DSC, ORDER_DSC_W, SET_USER, SHOW_RESULT } from "./actionsTypes";
 
 const initialState = {
     user: {
@@ -42,6 +42,11 @@ const reducer = (state = initialState, { type, payload }) => {
                 allDogs: payload,
                 dogsToShow: payload
             }; 
+        case SHOW_RESULT:
+            return {
+                ...state,
+                dogsToShow: payload
+            };          
         case FILTER:
             const allDogsCopy = [...state.allDogs]
             return {
@@ -51,21 +56,39 @@ const reducer = (state = initialState, { type, payload }) => {
                 ? allDogsCopy.filter(dog =>  Object.keys(dog).length > 5)
                 : allDogsCopy.filter(dog =>  Object.keys(dog).length <= 5)
             };
-        case ORDER:
-            const dogsToShowCopy = [...state.dogsToShow]
+        case ORDER_ASC:
+            const allDogs = [...state.allDogs]
             return {
                 ...state,
-                dogsToShow: 
-                payload === 'A'
-                ? dogsToShowCopy.sort((a, b) => a.name.localeCompare(b.name))
-                : dogsToShowCopy.sort((a, b) => b.name.localeCompare(a.name))
+                dogsToShow: allDogs.sort((a, b) => a.name.localeCompare(b.name))
             };
-        case SHOW_RESULT:
+        case ORDER_DSC:
+            const allDogs1 = [...state.allDogs]
             return {
                 ...state,
-                dogsToShow: payload
-            };      
-            
+                dogsToShow: allDogs1.sort((a, b) => b.name.localeCompare(a.name))
+            };
+        case ORDER_ASC_W:
+            const allDogs2 = [...state.allDogs]
+            return {
+                ...state,
+                dogsToShow: allDogs2.sort((a, b) => {
+                    const pesoA = +a.weight.metric.split(' ')[0];
+                    const pesoB = +b.weight.metric.split(' ')[0];
+                    return pesoA - pesoB;
+                })
+            };
+        case ORDER_DSC_W:
+            const allDogs3 = [...state.allDogs]
+            return {
+                ...state,
+                dogsToShow: allDogs3.sort((a, b) => {
+                    const pesoA = +a.weight.metric.split(' ')[0];
+                    const pesoB = +b.weight.metric.split(' ')[0];
+                    return pesoB - pesoA;
+                })
+            };
+
         default:
             return {...state}
     }
