@@ -1,4 +1,4 @@
-import { SET_USER, LOG_OUT, GET_DOGS, FILTER, ORDER } from './actionsTypes'
+import { SET_USER, LOG_OUT, GET_DOGS, FILTER, ORDER, SHOW_RESULT } from './actionsTypes'
 import axios from 'axios';
 
 export const setUser = (user) => {
@@ -27,7 +27,10 @@ export const filterDogs = (dogsFrom) => {
 
 
 export const orderDogs = (order) => {
-    return { type: ORDER, payload: order}
+    return { type: ORDER, payload: order }
 };
 
+export const showResult = (result) => {
+    return { type: SHOW_RESULT, payload: result }
+};
 

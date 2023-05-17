@@ -3,3 +3,4 @@ export const LOG_OUT = 'LOG_OUT';
 export const GET_DOGS = 'GET_DOGS';
 export const FILTER = 'FILTER';
 export const ORDER = 'ORDER';
+export const SHOW_RESULT = 'SHOW_RESULT';

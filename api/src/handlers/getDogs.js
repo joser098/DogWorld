@@ -1,11 +1,13 @@
 const getAllOrByName = require('../controllers/dogRoutesControls/getAllOrByName');
 
+
 const getDogs = async (req, res) =>{
    try {
 
       const { name } = req.query;
       if(name){
          const dogName = await getAllOrByName(name);
+         // const dogImages = await  getDogsImages(name);
          return res.status(200).json(dogName);
       }
 
