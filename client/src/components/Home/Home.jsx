@@ -33,7 +33,7 @@ const Home = () => {
     
     const handleSelectFilter = (event) => {
         const { value } = event.target;
-        dispatch(filterDogs(value));
+        handleFilter(value, dispatch)
     };
 
     const handleSelectOrder = (event) => {
@@ -44,6 +44,7 @@ const Home = () => {
     return(
         <div>
              <select onChange={handleSelectFilter}> 
+                <option value="AD">All Dogs</option>
                 <option value="API">Dogs from api</option>
                 <option value="DB">Dogs from DB</option>
              </select>

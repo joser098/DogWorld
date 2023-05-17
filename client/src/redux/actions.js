@@ -1,4 +1,4 @@
-import { SET_USER, LOG_OUT, GET_DOGS, FILTER, SHOW_RESULT, ORDER_ASC, ORDER_DSC, ORDER_ASC_W, ORDER_DSC_W } from './actionsTypes'
+import { SET_USER, LOG_OUT, GET_DOGS, SHOW_RESULT, ORDER_ASC, ORDER_DSC, ORDER_ASC_W, ORDER_DSC_W, FILTER_API, FILTER_DB } from './actionsTypes'
 import axios from 'axios';
 
 export const setUser = (user) => {
@@ -25,11 +25,6 @@ export const showResult = (result) => {
     return { type: SHOW_RESULT, payload: result }
 };
 
-export const filterDogs = (dogsFrom) => {
-    return { type: FILTER, payload: dogsFrom }
-};
-
-
 export const orderAsc = () => {
     return { type: ORDER_ASC, payload: null }
 };
@@ -46,4 +41,12 @@ export const orderDscW = () => {
     return { type: ORDER_DSC_W, payload: null }
 };
 
+
+export const filterApi = () => {
+    return { type: FILTER_API, payload: null }
+};
+
+export const filterDb = () => {
+    return { type: FILTER_DB, payload: null }
+};
 

@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { orderAsc, orderAscW, orderDsc, orderDscW } from '../../redux/actions';
+
+import { filterApi, filterDb, getDogs, orderAsc, orderAscW, orderDsc, orderDscW } from '../../redux/actions';
 
 export const cardsPerPage = 8;
 
@@ -31,8 +31,10 @@ export const firstShow = (allDogs, setCardsToShow) => {
     setCardsToShow([...allDogs].slice(0, cardsPerPage))
 };
 
-export const handleFilter = (event) => {
-
+export const handleFilter = (value, dispatch) => {
+    if(value === 'API'){ dispatch(filterApi())}
+    if(value === 'DB'){ dispatch(filterDb())}
+    if(value === 'AD'){ dispatch(getDogs())}
 };
 
 export const handleOrder = (value, dispatch) => {
@@ -40,7 +42,6 @@ export const handleOrder = (value, dispatch) => {
     if(value === 'D'){ dispatch(orderDsc())}
     if(value === 'AxW'){ dispatch(orderAscW())}
     if(value === 'DxW'){ dispatch(orderDscW())}
-
 };
 
 
