@@ -17,6 +17,17 @@ const DogForm = () => {
         image: '',
         temperaments: []
     });
+    const [ errors, setErrors ] = useState({
+        name: '',
+        height_min: '',
+        height_max: '',
+        weight_min: '',
+        weight_max: '',
+        life_span_min: '',
+        life_span_max: '',
+        image: '',
+        temperaments: []
+    });
 
     const handleInputChange = (event) => {
         handleChange(event, setDogToCreate, dogToCreate)

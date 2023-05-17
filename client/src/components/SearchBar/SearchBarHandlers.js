@@ -5,11 +5,16 @@ export const handleInput = (event, setNameToSearch) => {
     setNameToSearch(value)
 };
 
-export const handleSearch = async (nameToSearch, dispatch, showResult) => {
+export const handleSearch = async (nameToSearch, dispatch, showResult, setNametoSearch) => {
     try {
         const { data } = await axios(`http://localhost:3001/dogs/?name=${nameToSearch}`);
 
-        dispatch(showResult(data))     
+        if(typeof data === 'string'){
+            alert(data);
+            return;
+        }
+
+         dispatch(showResult(data)) 
     } catch (error) {
         console.log(error)
     }

@@ -15,7 +15,8 @@ const SearchBar = () => {
 
     const handleSearchButton = (event) => {
         event.preventDefault();
-        handleSearch(nameToSearch, dispatch, showResult)
+        handleSearch(nameToSearch, dispatch, showResult);
+        setNametoSearch('');
     };
 
 
