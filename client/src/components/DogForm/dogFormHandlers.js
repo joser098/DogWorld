@@ -6,12 +6,18 @@ export const getTemperaments = async (setTemperaments) => {
     setTemperaments(data);
 };
 
-export const handleChange = (event, setDogToCreate, dogToCreate, temperaments) => {
+export const handleChange = (event, setDogToCreate, dogToCreate, setErrors, validations) => {
     const { name, value } = event.target;
     setDogToCreate({
         ...dogToCreate,
         [name]: value
     })
+    setErrors(
+        validations({
+            ...dogToCreate,
+            [name]:value
+        })
+    )
 };
 
 export const handleTempsToShow  = (tempSelected, setTempsToShow, tempsToShow, temperaments) => {
@@ -52,16 +58,16 @@ export const handleSubmitButton = async (dogToCreate, setDogToCreate, setTempsTo
 };
 
 
-export const disableSubmit = (dogToCreate) => {
+export const disableSubmit = (errors) => {
     return(
-        dogToCreate.name !== ''  && 
-        dogToCreate.height_min !== '' &&
-        dogToCreate.height_max !== '' &&
-        dogToCreate.weight_min !== '' && 
-        dogToCreate.weight_max !== '' &&
-        dogToCreate.life_span_min !== '' &&
-        dogToCreate.life_span_max !== '' &&
-        dogToCreate.image !== '' &&
-        dogToCreate.temperaments.length !== 0
+        !errors.name  && 
+        !errors.height_min  &&
+        !errors.height_max  &&
+        !errors.weight_min  && 
+        !errors.weight_max  &&
+        !errors.life_span_min  &&
+        !errors.life_span_max  &&
+        !errors.image  &&
+        !errors.temperaments
     )
 };
