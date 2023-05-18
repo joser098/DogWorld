@@ -3,6 +3,7 @@ import { handleChange, handleSubmit } from './loginHandlers';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux/actions';
+import styles from './Login.module.css'
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -26,29 +27,30 @@ const Login = () => {
     };
 
     return(
-        <div>
-            <form >
-                <h3>Welcome to DogWorld</h3>
-                <input type="email"
-                       name="email"
-                       placeholder="Email"
-                       value={userData.email}
-                       onChange={handleInputChange}/>
+        <div className={styles.background}>
+            <div className={styles.container}>
+              <form className={styles.form} >
+                  <h3 className={styles.title}>Welcome to DogWorld</h3>
+                  <input type="email"
+                         name="email"
+                         placeholder="Email"
+                         value={userData.email}
+                         onChange={handleInputChange}
+                         className={styles.input}/>
+  
+                  <input type="text"
+                         name="password"
+                         placeholder="Password"
+                         value={userData.password}
+                         onChange={handleInputChange}
+                         className={styles.input}/>
 
-                <input type="text"
-                       name="password"
-                       placeholder="Password"
-                       value={userData.password}
-                       onChange={handleInputChange}/>
-                <button onClick={handlebuttonSubmit}>Log In</button>
-
-                <label>Don't have an account</label>
-                <a href="/register">Register</a>
-
-                {
-                    //Boton log in debe redirigir al Home y guardar sesion en GlobalState
-                }
-            </form>
+                  <button className={styles.btn} onClick={handlebuttonSubmit}>Log In 🐕</button>
+  
+                  <label className={styles.label}>Don't have an account yet?</label>
+                  <a className={styles.ref} href="/register">Register</a>
+              </form>
+            </div>
         </div>
     )
 };

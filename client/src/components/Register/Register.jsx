@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import { handleChange, handleSubmit } from "./RegisterHandlers";
+import styles from './Register.module.css'
+
 
 const Register = () => {
     const navigate = useNavigate();
@@ -27,7 +29,7 @@ const Register = () => {
 
     return(
         <div>
-            <form>
+            <form className={styles.form}>
                 <h3>Register for doggy experience</h3>
 
             <label htmlFor="info">Complete all info</label>

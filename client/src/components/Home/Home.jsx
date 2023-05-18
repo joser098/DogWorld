@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { nextHandler, prevHandler, firstShow, handleFilter, handleOrder } from './homeHandlers';
 import DogCard from '../DogCard/DogCard';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
-import { getDogs, filterDogs} from '../../redux/actions'; 
+import { getDogs } from '../../redux/actions'; 
 
 
 const Home = () => {
@@ -44,7 +43,7 @@ const Home = () => {
     return(
         <div>
              <select onChange={handleSelectFilter}> 
-                <option value="AD">All Dogs</option>
+                <option value="AD">Al Dogs</option>
                 <option value="API">Dogs from api</option>
                 <option value="DB">Dogs from DB</option>
              </select>
