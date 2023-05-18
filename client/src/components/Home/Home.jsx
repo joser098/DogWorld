@@ -60,6 +60,7 @@ const Home = () => {
              </select>
             </div>
 
+            <div className={styles.card_container}>
             {
                 cardsToShow.map(({id, image, name, weight, temperament}) => {
                    return (
@@ -73,6 +74,8 @@ const Home = () => {
                    )
                 })
             }
+            </div>
+
             <button className={styles.btn} onClick={prevButtonHandler}> ◀ Prev </button>
             <label htmlFor="current">{currentPage}</label>
             <button className={styles.btn} onClick={nextButtonHandler}> Next ▶ </button>
