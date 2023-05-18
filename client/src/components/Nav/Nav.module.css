@@ -1,5 +1,9 @@
+body {
+    background-color:   #eae1d1 ;
+}
+
 .background {
-    background-color: #1c1c1c;
+    background-color: #43423d;
     height: 30px;
     line-height: 30px;
     padding: 10px 0;
@@ -12,5 +16,21 @@
 
 
 .btn {
+    border: none;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    margin: 0 8px;
+    width: 75px;
+    font-family: monospace;
+    background: #43423d;
+    color: #eae1d1;
+    cursor: pointer;
+    font-size: large;
+    transition: 0.2s ease all;
+}
 
+.btn:hover {
+    transform: translate(2px, 5px) ;
+    box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.6)
 }

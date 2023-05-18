@@ -2,3 +2,33 @@
     position: flex;
     margin: 0 auto 0 40%
 }
+
+.input {
+    border: 3px solid transparent;
+    border-radius: 3px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px 0 10px;
+    transition: 0.3s ease all;
+}
+
+.input:focus {
+    outline: none;
+    border: 3px solid  #898887;
+}
+
+.btn {
+    border: none;
+    margin: 0 8px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 3px;
+    background: #676664 ;
+    cursor: pointer;
+    transition: 0.2s ease all;
+}
+
+.btn:hover {
+    transform: scale(0.9);
+}
+

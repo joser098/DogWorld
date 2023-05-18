@@ -1,0 +1,51 @@
+.select_div {
+    display: flex;
+    justify-content: end;
+}
+
+.span {
+    height: 23px;
+    margin: 10px 1px;
+    font-family: monospace;
+}
+
+
+.select {
+    border: 1px solid transparent;
+    height: 25px;
+    cursor: pointer;
+    margin: 5px 10px;
+    border-radius: 3px;
+    font-family: monospace;
+    transition: 0.4 ease all;
+    text-decoration: none;
+    background: #eae1d1;
+    font-size: small;
+}
+
+.select:hover {
+    color:  #9e5e40;
+    border: 1px solid #9e5e40;
+}
+
+.option {
+    color:  #373630;
+    background: #fff;
+}
+
+.btn {
+    border: none;
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 10px;
+    margin: 10px;
+    border-radius: 4px;
+    background: transparent;
+    font-family: monospace;
+    color: #43423d;
+    transition: 0.5s ease all;
+}
+
+.btn:hover {
+    background:  #c39c7e;
+}

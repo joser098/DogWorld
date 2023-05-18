@@ -3,6 +3,7 @@ import { nextHandler, prevHandler, firstShow, handleFilter, handleOrder } from '
 import DogCard from '../DogCard/DogCard';
 import { useDispatch, useSelector} from 'react-redux';
 import { getDogs } from '../../redux/actions'; 
+import styles from './Home.module.css';
 
 
 const Home = () => {
@@ -42,18 +43,22 @@ const Home = () => {
     
     return(
         <div>
-             <select onChange={handleSelectFilter}> 
-                <option value="AD">Al Dogs</option>
-                <option value="API">Dogs from api</option>
-                <option value="DB">Dogs from DB</option>
+            <div className={styles.select_div}>
+             <span className={styles.span}>Filter by:</span> 
+             <select className={styles.select} onChange={handleSelectFilter}> 
+                <option className={styles.option} value="AD">All Dogs</option>
+                <option className={styles.option} value="API">Dogs from api</option>
+                <option className={styles.option} value="DB">Dogs from DB</option>
              </select>
 
-             <select onChange={handleSelectOrder}>
-                <option value="A">Ascendente</option>
-                <option value="D">Descendente</option>
-                <option value="AxW">Min weight</option>
-                <option value="DxW">Max weight</option>
+             <span className={styles.span}>Order by:</span> 
+             <select className={styles.select} onChange={handleSelectOrder}>
+                <option className={styles.option} value="A">Ascendente</option>
+                <option className={styles.option} value="D">Descendente</option>
+                <option className={styles.option} value="AxW">Min weight</option>
+                <option className={styles.option} value="DxW">Max weight</option>
              </select>
+            </div>
 
             {
                 cardsToShow.map(({id, image, name, weight, temperament}) => {
@@ -68,9 +73,9 @@ const Home = () => {
                    )
                 })
             }
-            <button onClick={prevButtonHandler}>Prev</button>
+            <button className={styles.btn} onClick={prevButtonHandler}> ◀ Prev </button>
             <label htmlFor="current">{currentPage}</label>
-            <button onClick={nextButtonHandler}>Next</button>
+            <button className={styles.btn} onClick={nextButtonHandler}> Next ▶ </button>
         </div>
     )
 };

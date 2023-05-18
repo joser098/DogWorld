@@ -19,19 +19,19 @@ const Nav = () => {
               <SearchBar/>
               
               <NavLink to='home' className={styles.nav}>
-                  <button className={styles.btn}> Home </button>
+                  <button className={styles.btn}> HOME </button>
               </NavLink>
 
               <NavLink to='newdog' className={styles.nav}>
-                  <button className={styles.btn}> Create </button>
+                  <button className={styles.btn}> CREATE </button>
               </NavLink>
 
               <NavLink to='Account' className={styles.nav}>
-                  <button className={styles.btn}> Account </button>
+                  <button className={styles.btn}> ACCOUNT </button>
               </NavLink>
 
               <NavLink to='/' className={styles.nav}>
-                 <button className={styles.btn} onClick={handleLogOut}> Log Out </button> 
+                 <button className={styles.btn} onClick={handleLogOut}> LOG OUT </button> 
               </NavLink>
   
             </div>

@@ -23,14 +23,14 @@ const SearchBar = () => {
 
     return (
         <div className={styles.container}>
-            <input  value={nameToSearch} 
+            <input  className={styles.input} value={nameToSearch} 
                     name="nameToSearch" 
                     type="search" 
                     placeholder="Name to search"
                     onChange={handleInputBar} 
                     />
 
-            <button onClick={handleSearchButton}>🔍</button>
+            <button className={styles.btn}  onClick={handleSearchButton}>🔍</button>
         </div>
     )
 };
