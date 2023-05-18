@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { handleInput, handleSearch } from "./SearchBarHandlers";
-import { showResult } from '../../redux/actions'
+import { showResult } from '../../redux/actions';
+import styles from './SearchBar.module.css';
 
 
 const SearchBar = () => {
@@ -21,7 +22,7 @@ const SearchBar = () => {
 
 
     return (
-        <div>
+        <div className={styles.container}>
             <input  value={nameToSearch} 
                     name="nameToSearch" 
                     type="search" 

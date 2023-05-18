@@ -1,3 +1,102 @@
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url(../../dogBackG.png);
+    background-size: cover;
+    background-attachment: fixed;
+};
+
+.container {
+    position: relative;
+    height: 100vh;
+}
+
 .form {
-    background-color: brown;
+    height: 400px;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    background-color:  #898887;
+    border-radius: 10px;
+    transition: 2 ease all;
+}
+
+.title {
+    font-family:monospace;
+    font-size: 20px;
+    background: linear-gradient(to right, #fcf4eb 50%, #e6d3bb  50%, #c88d58);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.5s ease-out;
+}
+
+.subTitle {
+    font-family: monospace;
+}
+
+.title:hover {
+    background-position: -100%;
+}
+
+.input {
+    width: 300px;
+    background: #fff;
+    border: 3px solid transparent;
+    border-radius: 4px;
+    height: 35px;
+    padding: 0 10px 0 10px;
+    margin: 10px 0;
+    transition: .3s ease all;
+}
+
+.input:focus {
+    border: 3px solid  #e6d3bb;
+    outline: none;
+    box-shadow: 3px 0px 30px #eae1d1;
+}
+
+.btn {
+    align-items: center;
+    height: 35px;
+    line-height: 35px;
+    width: 35%;
+    background: #000;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: .1s ease all;
+    margin: 10px;
+    font-family: monospace;
+}
+
+.btn:hover {
+    box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.3)
+}
+
+.label {
+    display: block;
+    font-family: monospace;
+    font-size: large;
+}
+
+.ref {
+    text-decoration: none;
+    color: #fcf4eb;
+    opacity: 90%;
+    font-family: monospace;
+    font-size: large;
+}
+
+.ref:hover {
+    text-decoration: underline;
 }
