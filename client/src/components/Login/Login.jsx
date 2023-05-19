@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { handleChange, handleSubmit } from './loginHandlers';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '../../redux/actions';
 import styles from './Login.module.css'
 
 const Login = () => {
+    const message = useSelector(state => state.message)
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [ userData, setUserData ] = useState({
@@ -19,7 +20,7 @@ const Login = () => {
     });
 
     const handleInputChange = (event) => {
-        handleChange(event, userData, setUserData)
+        handleChange(event, userData, setUserData, errors, setErrors)
     };
 
     const handlebuttonSubmit = (event) => {
@@ -37,6 +38,7 @@ const Login = () => {
                          value={userData.email}
                          onChange={handleInputChange}
                          className={styles.input}/>
+                  {errors.email && <p className={styles.errors}>{errors.email}</p>}       
   
                   <input type="text"
                          name="password"
@@ -44,8 +46,9 @@ const Login = () => {
                          value={userData.password}
                          onChange={handleInputChange}
                          className={styles.input}/>
-
-                  <button className={styles.btn} onClick={handlebuttonSubmit}>Log In 🐕</button>
+                  {errors.password && <p className={styles.errorForm}>{errors.password}</p>}       
+                  { message && <span className={styles.message}>{message}</span>}
+                  <button className={styles.btn} onClick={handlebuttonSubmit} >Log In 🐕</button>
   
                   <label className={styles.label}>Don't have an account yet?</label>
                   <a className={styles.ref} href="/register">Register</a>

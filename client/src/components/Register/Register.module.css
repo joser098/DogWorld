@@ -60,7 +60,10 @@
 .input:focus {
     border: 3px solid  #e6d3bb;
     outline: none;
-    box-shadow: 3px 0px 30px #eae1d1;
+}
+
+.errors {
+    margin: 0;
 }
 
 .btn {

@@ -60,6 +60,12 @@
     box-shadow: 3px 0px 30px #eae1d1;
 }
 
+.message {
+    display: block;
+    color:   #db4241 ;
+    font-weight: bold;
+}
+
 .btn {
     align-items: center;
     height: 35px;

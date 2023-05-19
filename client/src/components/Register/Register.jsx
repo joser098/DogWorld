@@ -19,7 +19,7 @@ const Register = () => {
     });
 
     const handleInputChange = (event) => {
-        handleChange(event, userData, setUserData);
+        handleChange(event, userData, setUserData, setErrors);
     };
 
     const handleButtonSubmit = async (event) => {
@@ -40,6 +40,8 @@ const Register = () => {
                        placeholder="Name"
                        value={userData.name}
                        onChange={handleInputChange}/>
+                {errors.name && <p className={styles.errors}>{errors.name}</p>}       
+                
   
                 <input className={styles.input} 
                        type="email" 
@@ -47,6 +49,7 @@ const Register = () => {
                        placeholder="Email"
                        value={userData.email}
                        onChange={handleInputChange}/>
+                {errors.email && <p className={styles.errors}>{errors.email}</p>}
     
                 <input className={styles.input} 
                        type="password" 
@@ -54,8 +57,13 @@ const Register = () => {
                        placeholder="Password"
                        value={userData.password}
                        onChange={handleInputChange}/>
+                {errors.password && <p className={styles.errors}>{errors.password}</p>}       
+                
     
-                <button className={styles.btn} onClick={handleButtonSubmit}>Register</button>
+                <button className={styles.btn} 
+                        onClick={handleButtonSubmit} 
+                        >Register
+                        </button>
     
                 <label className={styles.label}>Have an account</label>
                 <a  className={styles.ref} href="/">Log In</a>

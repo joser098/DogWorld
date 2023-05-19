@@ -13,7 +13,7 @@ const Detail = () => {
     const message = useSelector(state => state.message);
      
     useEffect(() => {
-        getDog(id, setDog);
+        getDog(id, setDog, dispatch, navigate);
         return setDog([])
     }, [])
 

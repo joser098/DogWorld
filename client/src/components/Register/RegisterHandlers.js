@@ -1,11 +1,18 @@
 import axios from 'axios';
+import { validation } from './validation'
 
-export const handleChange = (event, userData, setUserData) => {
+export const handleChange = (event, userData, setUserData, setErrors) => {
     const { value, name } = event.target;  
     setUserData({
         ...userData,
         [name]: value
     })
+    setErrors(
+        validation({
+            ...userData,
+            [name]:value
+        })
+    )
 };
 
 export const handleSubmit = async (event, userData, navigate) => {

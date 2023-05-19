@@ -1,11 +1,19 @@
 import axios from 'axios';
 import { notFound_message, clean_message } from '../../redux/actions'
 
-export const getDog = async (id, setDog) => { try {
+export const getDog = async (id, setDog, dispatch, navigate) => { try {
     const { data } = await axios(`http://localhost:3001/dogs/${id}`);  
     setDog(data);
 } catch (error) {
-    alert(`There is not dog with id: ${id}`)
+   dispatch(notFound_message(`There is not dog with id: ${id}`))
+
+   setTimeout(() => {
+       dispatch(clean_message())
+   }, "3000")
+
+   setTimeout(() => {
+       navigate('/home')
+   }, "3000")
   }
 };
 
@@ -18,7 +26,7 @@ export const handleDelete = async (id, dispatch, navigate) => {
 
    setTimeout(() => {
        dispatch(clean_message())
-   }, "2000")
+   }, "3000")
 
    setTimeout(() => {
        navigate('/home')
