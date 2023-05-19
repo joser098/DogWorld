@@ -33,8 +33,14 @@
     background: #fff;
 }
 
+.message {
+    color: red;
+    font-weight: bold;
+}
+
 .card_container {
     display: flex;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     padding: 10px;

@@ -1,6 +1,6 @@
 .container {
     position: flex;
-    margin: 0 auto 0 40%
+    margin: 0 auto 
 }
 
 .input {
@@ -18,6 +18,7 @@
 }
 
 .btn {
+    position: relative;
     border: none;
     margin: 0 8px;
     height: 30px;

@@ -35,8 +35,9 @@
 }
 
 p {
+    font-weight: bold;
     font-size: small;
-    color: red;
+    color: #db4241;
 }
 
 .input {
@@ -119,8 +120,8 @@ p {
     box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.3)
 }
 
-.temperaments {
-
+.temperaments span{
+    color: #cc8424 ;
 }
 
 .btn_create {

@@ -1,4 +1,4 @@
-import { FILTER_API, FILTER_DB, GET_DOGS, LOG_OUT, ORDER_ASC, ORDER_ASC_W, ORDER_DSC, ORDER_DSC_W, SET_USER, SHOW_RESULT } from "./actionsTypes";
+import { CLEAN_MESSAGE, FILTER_API, FILTER_DB, GET_DOGS, LOG_OUT, NOT_FOUND_MESSAGE, ORDER_ASC, ORDER_ASC_W, ORDER_DSC, ORDER_DSC_W, SET_USER, SHOW_RESULT } from "./actionsTypes";
 
 const initialState = {
     user: {
@@ -9,7 +9,8 @@ const initialState = {
         // userLikes: []
     },
     allDogs: [],
-    dogsToShow: []
+    dogsToShow: [],
+    message: ''
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -91,7 +92,16 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 dogsToShow: allDogsCopy1.filter(dog => /([a-zA-Z]+([0-9]+[a-zA-Z]+)+)/.test(dog.id)) 
             };
-            
+        case NOT_FOUND_MESSAGE:
+            return {
+                ...state,
+                message:payload
+            };
+        case CLEAN_MESSAGE:
+            return {
+                ...state,
+                message: ''
+            };    
         default:
             return {...state}
     }

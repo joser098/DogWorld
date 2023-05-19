@@ -9,7 +9,13 @@ body {
     padding: 10px 0;
 }
 
+.logo {
+    width: 230px;
+    height: 40px;
+}
+
 .container {
+    height: 60px;
     display: flex;
     justify-content: flex-end;
 }

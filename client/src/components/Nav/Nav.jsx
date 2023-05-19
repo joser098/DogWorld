@@ -3,7 +3,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import { useDispatch } from "react-redux";
 import { logOut } from "../../redux/actions";
 import styles from './Nav.module.css';
-
+import img from './dogworld.png'
 
 const Nav = () => {
     const dispatch = useDispatch();
@@ -15,7 +15,10 @@ const Nav = () => {
 
     return(
         <div className={styles.background}>
+
             <div className={styles.container}>
+                <img className={styles.logo} src={img} alt="logo" />
+
               <SearchBar/>
               
               <NavLink to='home' className={styles.nav}>

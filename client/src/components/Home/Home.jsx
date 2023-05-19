@@ -9,6 +9,7 @@ import styles from './Home.module.css';
 const Home = () => {
     const dispatch = useDispatch();
     const allDogs = useSelector(state => state.dogsToShow);
+    const message = useSelector(state => state.message);
     const [ cardsToShow, setCardsToShow ] = useState([]);
     const [ currentPage, setCurrentPage ] = useState(0);
  
@@ -59,6 +60,8 @@ const Home = () => {
                 <option className={styles.option} value="DxW">Max weight</option>
              </select>
             </div>
+
+            { message && <span className={styles.message}>{message}</span> }
 
             <div className={styles.card_container}>
             {
