@@ -1,0 +1,143 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    margin: 20px 30px;
+    padding: 10px;
+    width: 80%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.2 );
+    
+} 
+
+.title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: x-large;
+    background: linear-gradient(to right, #373630 50%,  #6c7c7c  50%,  #a46c7c);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.5s ease-out;
+}
+
+.title:hover {
+    background-position: -100%;
+    transform: scale(1.3);
+}
+
+.label {
+    display: block;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+}
+
+p {
+    font-size: small;
+    color: red;
+}
+
+.input {
+    background: #fff;
+    width: 40%;
+    border: 3px solid transparent;
+    border-radius: 4px;
+    height: 35px;
+    line-height: 35px;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    transition: 0.5s ease all;
+    font-size: large;
+    font-family: monospace;
+}
+
+.input:focus {
+    border: 3px solid #43423d ;
+    outline: none;
+}
+
+.input_num {
+    background: #fff;
+    width: 20%;
+    border: 3px solid transparent;
+    border-radius: 4px;
+    height: 35px;
+    line-height: 35px;
+    padding: 2px;
+    margin-bottom: 25px;
+    margin-top: 8px;
+    margin-left: 4px;
+    margin-right: 4px;
+    transition: 0.5s ease all;
+    font-size: large;
+    font-family: monospace;
+}
+
+.input:focus {
+    border: 3px solid #43423d ;
+    outline: none;
+}
+
+.select {
+    border: 1px solid transparent;
+    height: 35px;
+    cursor: pointer;
+    margin: 5px 10px;
+    width: 25%;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: large;
+}
+
+.select:hover {
+    border: 1px solid #43423d;
+}
+
+.option {
+    color:  #373630;
+}
+
+.add_btn {
+    border: none;
+    border-radius: 3px;
+    height: 35px;
+    line-height: 35px;
+    width: 17%;
+    margin: 10px 0px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: monospace;
+    background: #373630;
+    color: #fff;
+    transition: 0.9 ease all;
+}
+
+.add_btn:hover {
+    box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.3)
+}
+
+.temperaments {
+
+}
+
+.btn_create {
+    border: none;
+    border-radius: 3px;
+    height: 35px;
+    line-height: 35px;
+    width: 30%;
+    margin: 10px 0px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: monospace;
+    background: #373630;
+    color: #fff;
+    transition: 0.9 ease all;
+}
+
+.btn_create:hover {
+    box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.3)
+}

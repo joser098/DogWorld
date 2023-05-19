@@ -62,7 +62,7 @@ export const validations = (dogToCreate) => {
     };
 
     // Temperaments
-    if(dogToCreate.temperaments.length === 0){
+    if(!dogToCreate.temperaments){
         errors.temperaments = 'Should add at least one temperament'
     };
 
