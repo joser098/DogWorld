@@ -13,30 +13,30 @@ const Nav = () => {
     };
 
 
-    return(
+    return (
         <div className={styles.background}>
 
             <div className={styles.container}>
                 <img className={styles.logo} src={img} alt="logo" />
 
-              <SearchBar/>
-              
-              <NavLink to='home' className={styles.nav}>
-                  <button className={styles.btn}> HOME </button>
-              </NavLink>
+                <SearchBar />
 
-              <NavLink to='newdog' className={styles.nav}>
-                  <button className={styles.btn}> CREATE </button>
-              </NavLink>
+                <NavLink to='home' className={styles.nav}>
+                    <button className={styles.btn}> HOME </button>
+                </NavLink>
 
-              <NavLink to='Account' className={styles.nav}>
-                  <button className={styles.btn}> ACCOUNT </button>
-              </NavLink>
+                <NavLink to='newdog' className={styles.nav}>
+                    <button className={styles.btn}> CREATE </button>
+                </NavLink>
 
-              <NavLink to='/' className={styles.nav}>
-                 <button className={styles.btn} onClick={handleLogOut}> LOG OUT </button> 
-              </NavLink>
-  
+                <NavLink to='Account' className={styles.nav}>
+                    <button className={styles.btn}> ACCOUNT </button>
+                </NavLink>
+
+                <NavLink to='/' className={styles.nav}>
+                    <button className={styles.btn} onClick={handleLogOut}> LOG OUT </button>
+                </NavLink>
+
             </div>
         </div>
     )

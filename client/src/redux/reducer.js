@@ -14,18 +14,18 @@ const initialState = {
 };
 
 const reducer = (state = initialState, { type, payload }) => {
-    switch( type ){
+    switch (type) {
         case SET_USER:
             return {
                 ...state,
-                user:{
-                session: true,
-                userId: payload.id,
-                userName: payload.name,
-                userEmail: payload.email,
-                // userLikes: payload.userLikes
-            }
-        };
+                user: {
+                    session: true,
+                    userId: payload.id,
+                    userName: payload.name,
+                    userEmail: payload.email,
+                    // userLikes: payload.userLikes
+                }
+            };
         case LOG_OUT:
             return {
                 ...state,
@@ -42,12 +42,12 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 allDogs: payload,
                 dogsToShow: payload
-            }; 
+            };
         case SHOW_RESULT:
             return {
                 ...state,
                 dogsToShow: payload
-            };          
+            };
         case ORDER_ASC:
             const allDogs = [...state.dogsToShow]
             return {
@@ -69,7 +69,7 @@ const reducer = (state = initialState, { type, payload }) => {
                     const pesoB = +b.weight.metric.split(' ')[0];
                     return pesoA - pesoB;
                 })
-        };
+            };
         case ORDER_DSC_W:
             const allDogs3 = [...state.dogsToShow]
             return {
@@ -84,26 +84,26 @@ const reducer = (state = initialState, { type, payload }) => {
             const allDogsCopy = [...state.allDogs]
             return {
                 ...state,
-                dogsToShow: allDogsCopy.filter(dog => typeof dog.id === 'number') 
+                dogsToShow: allDogsCopy.filter(dog => typeof dog.id === 'number')
             };
         case FILTER_DB:
             const allDogsCopy1 = [...state.allDogs]
             return {
                 ...state,
-                dogsToShow: allDogsCopy1.filter(dog => /([a-zA-Z]+([0-9]+[a-zA-Z]+)+)/.test(dog.id)) 
+                dogsToShow: allDogsCopy1.filter(dog => /([a-zA-Z]+([0-9]+[a-zA-Z]+)+)/.test(dog.id))
             };
         case NOT_FOUND_MESSAGE:
             return {
                 ...state,
-                message:payload
+                message: payload
             };
         case CLEAN_MESSAGE:
             return {
                 ...state,
                 message: ''
-            };    
+            };
         default:
-            return {...state}
+            return { ...state }
     }
 };
 

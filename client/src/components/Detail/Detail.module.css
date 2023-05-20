@@ -111,4 +111,5 @@ span {
     width: 20%;
     border-radius: 4px;
     background: #db4241 ;
+    cursor: pointer;
 }

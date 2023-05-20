@@ -5,14 +5,14 @@ const Account = () => {
     const state = useSelector(state => state.user);
 
 
-    return(
-     <div>
-        <h3>Account info</h3>
+    return (
         <div>
-            <h4>{state.userName}</h4>
-            <h4>{state.userEmail}</h4>
+            <h3>Account info</h3>
+            <div>
+                <h4>{state.userName}</h4>
+                <h4>{state.userEmail}</h4>
+            </div>
         </div>
-     </div>   
     )
 };
 

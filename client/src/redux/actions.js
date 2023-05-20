@@ -13,10 +13,10 @@ export const getDogs = () => {
     return async (dispatch) => {
         try {
             const { data } = await axios(`http://localhost:3001/dogs`);
-            
+
             return dispatch({ type: GET_DOGS, payload: data });
         } catch (error) {
-            return { type: GET_DOGS, payload: 'error en action'}
+            return { type: GET_DOGS, payload: 'error en action' }
         }
     }
 };
@@ -51,7 +51,7 @@ export const filterDb = () => {
 };
 
 export const notFound_message = (message) => {
-    return { type: NOT_FOUND_MESSAGE, payload: message}
+    return { type: NOT_FOUND_MESSAGE, payload: message }
 }
 
 export const clean_message = () => {

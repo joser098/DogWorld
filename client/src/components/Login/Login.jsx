@@ -9,12 +9,12 @@ const Login = () => {
     const message = useSelector(state => state.message)
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [ userData, setUserData ] = useState({
+    const [userData, setUserData] = useState({
         email: '',
         password: ''
     });
 
-    const [ errors, setErrors ] = useState({
+    const [errors, setErrors] = useState({
         email: '',
         password: ''
     });
@@ -27,32 +27,32 @@ const Login = () => {
         handleSubmit(event, userData, navigate, dispatch, setUser);
     };
 
-    return(
+    return (
         <div className={styles.background}>
             <div className={styles.container}>
-              <form className={styles.form} >
-                  <h3 className={styles.title}>Welcome to DogWorld</h3>
-                  <input type="email"
-                         name="email"
-                         placeholder="Email"
-                         value={userData.email}
-                         onChange={handleInputChange}
-                         className={styles.input}/>
-                  {errors.email && <p className={styles.errors}>{errors.email}</p>}       
-  
-                  <input type="text"
-                         name="password"
-                         placeholder="Password"
-                         value={userData.password}
-                         onChange={handleInputChange}
-                         className={styles.input}/>
-                  {errors.password && <p className={styles.errorForm}>{errors.password}</p>}       
-                  { message && <span className={styles.message}>{message}</span>}
-                  <button className={styles.btn} onClick={handlebuttonSubmit} >Log In 🐕</button>
-  
-                  <label className={styles.label}>Don't have an account yet?</label>
-                  <a className={styles.ref} href="/register">Register</a>
-              </form>
+                <form className={styles.form} >
+                    <h3 className={styles.title}>Welcome to DogWorld</h3>
+                    <input type="email"
+                        name="email"
+                        placeholder="Email"
+                        value={userData.email}
+                        onChange={handleInputChange}
+                        className={styles.input} />
+                    {errors.email && <p className={styles.errors}>{errors.email}</p>}
+
+                    <input type="text"
+                        name="password"
+                        placeholder="Password"
+                        value={userData.password}
+                        onChange={handleInputChange}
+                        className={styles.input} />
+                    {errors.password && <p className={styles.errorForm}>{errors.password}</p>}
+                    {message && <span className={styles.message}>{message}</span>}
+                    <button className={styles.btn} onClick={handlebuttonSubmit} >Log In 🐕</button>
+
+                    <label className={styles.label}>Don't have an account yet?</label>
+                    <a className={styles.ref} href="/register">Register</a>
+                </form>
             </div>
         </div>
     )

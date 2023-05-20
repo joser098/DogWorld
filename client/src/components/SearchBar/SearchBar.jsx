@@ -8,7 +8,7 @@ import styles from './SearchBar.module.css';
 const SearchBar = () => {
     const dispatch = useDispatch();
     const dogsFound = useSelector(state => state.dogsToShow);
-    const [ nameToSearch, setNametoSearch ] = useState('');
+    const [nameToSearch, setNametoSearch] = useState('');
 
     const handleInputBar = (event) => {
         handleInput(event, setNametoSearch)
@@ -23,14 +23,14 @@ const SearchBar = () => {
 
     return (
         <div className={styles.container}>
-            <input  className={styles.input} value={nameToSearch} 
-                    name="nameToSearch" 
-                    type="search" 
-                    placeholder="Name to search"
-                    onChange={handleInputBar} 
-                    />
+            <input className={styles.input} value={nameToSearch}
+                name="nameToSearch"
+                type="search"
+                placeholder="Name to search"
+                onChange={handleInputBar}
+            />
 
-            <button className={styles.btn}  onClick={handleSearchButton}>🔍</button>
+            <button className={styles.btn} onClick={handleSearchButton}>🔍</button>
         </div>
     )
 };
