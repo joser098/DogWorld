@@ -1,6 +1,6 @@
 .container {
     width: 370px;
-    height: 250px;
+    height: 300px;
     overflow: hidden;
     margin: 20px;
     transition: 0.5s ease all;
@@ -16,7 +16,19 @@
     top: 20px;
     left: 40px;
     margin-bottom: 50px;
+    background: rgba(0, 0, 0, 0.5 );
 }
+
+.container:hover .info .name {
+    color: #fff;
+}
+.container:hover .info .weight {
+    color: #fff;
+}
+.container:hover .info .temperament {
+    color: #fff;
+}
+
 
 .nav {
     text-decoration: none;
@@ -41,25 +53,25 @@
     justify-content: center;
     align-items: center;
     margin: 40px 20px;
-    background: rgba(0, 0, 0, 0.5 );
+    background: transparent;
     border-radius: 10px;
-    color: #fff;
+    color: transparent;
     cursor: pointer;
 }
 
 .name {
-    color: #fff;
+    color: transparent;
     margin: 10px;
     font-size: x-large;
 }
 
 .weight {
-    color: #fff;
+    color: transparent;
     font-size: medium;
     margin: 8px 5px;
 }
 .temperament {
-    color: #fff;
+    color: transparent;
     font-size: x-small;
     margin: 8px 5px;
 }
