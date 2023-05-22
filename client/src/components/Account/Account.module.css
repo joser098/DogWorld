@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #373630;
+    margin: 10px 400px;
+    height: 200px;
+    opacity: 70%;
+    color:  #f4c46c;
+    border-radius: 20px;
+}
+
+.span {
+    color: #000;
+}

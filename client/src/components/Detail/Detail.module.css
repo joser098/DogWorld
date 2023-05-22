@@ -110,6 +110,49 @@ span {
     margin: 5px;
     width: 20%;
     border-radius: 4px;
-    background: #db4241 ;
+    background: #a46c7c  ;
+    cursor: pointer;
+}
+
+.editBtn {
+    border: none;
+    height: 35px;
+    line-height: 35px;
+    margin: 5px;
+    width: 20%;
+    border-radius: 4px;
+    background:  #68747c ;
+    cursor: pointer;
+}
+
+.form{
+    padding: 8px;
+    margin: 10px;
+    background: #373630;
+    border-radius: 5px;
+}
+
+.labelInfo {
+    display: block;
+    color: #fff;
+}
+
+.input {
+    background: #fff;
+    width: 100px;
+    margin: 10px 5px;
+    height: 30px;
+    border-radius: 3px;
+    border: none;
+}
+
+.updateBtn {
+    border: none;
+    height: 35px;
+    line-height: 35px;
+    margin: 5px;
+    width: 20%;
+    border-radius: 4px;
+    background:  #68747c ;
     cursor: pointer;
 }

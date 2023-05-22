@@ -1,18 +1,18 @@
 const getUserAccess = require('../controllers/dogRoutesControls/getUserAccess');
 
-const getUserLogin = async(req, res) => {
-    try {
-        const { email, password } = req.query;
-        if(!email || !password) return res.status(400).json({ access: false, message: 'Dates incompleted' });
-        
-        const userFound = await getUserAccess(email, password);
+const getUserLogin = async (req, res) => {
+  try {
+    const { email, password } = req.query;
+    if (!email || !password) return res.status(400).json({ access: false, message: 'Dates incompleted' });
 
-        if(typeof userFound !='string'){return res.status(200).json({access: true, userFound});}
-        
-        return res.status(404).json({access: false, message: userFound});
-    } catch (error) {
-      return res.status(500).json({message: error.message});
-    };
+    const userFound = await getUserAccess(email, password);
+
+    if (typeof userFound != 'string') { return res.status(200).json({ access: true, userFound }); }
+
+    return res.status(404).json({ access: false, message: userFound });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  };
 };
 
 

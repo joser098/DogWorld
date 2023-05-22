@@ -59,15 +59,12 @@ const DogForm = () => {
                 <label className={styles.label} htmlFor="height">HEIGHT (cm)</label>
                 <input className={styles.input_num} onChange={handleInputChange} value={dogToCreate.height_min} placeholder="min" name="height_min" type="number" min='15' max='110' />
                 <input className={styles.input_num} onChange={handleInputChange} value={dogToCreate.height_max} placeholder="max" name="height_max" type="number" min='15' max="110" />
-                {errors && errors.includes('Minimun height') && <p>{errors}</p>}
-                {errors && errors.includes('Maximun height') && <p>{errors}</p>}
-
-
+                {errors && errors.includes('height') && <p>{errors}</p>}
+                
                 <label className={styles.label} htmlFor="weight">WEIGHT (kg)</label>
                 <input className={styles.input_num} onChange={handleInputChange} value={dogToCreate.weight_min} placeholder="min" name="weight_min" type="number" min='1' max='60' />
                 <input className={styles.input_num} onChange={handleInputChange} value={dogToCreate.weight_max} placeholder="max" name="weight_max" type="number" min='3' max="90" />
-                {errors && errors.includes('Minimun weight') && <p>{errors}</p>}
-                {errors && errors.includes('Maximun weight') && <p>{errors}</p>}
+                {errors && errors.includes('weight') && <p>{errors}</p>}
 
                 <div>
                     <label className={styles.label} htmlFor="image">IMAGE (url)</label>

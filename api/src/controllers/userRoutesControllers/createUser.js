@@ -1,7 +1,7 @@
 const { User } = require('../../db');
 
 const createUser = async (name, email, password) => {
-    if(!name || !email || !password) throw Error('Faltan datos');
+    if (!name || !email || !password) throw Error('Faltan datos');
 
     const newUser = await User.create({
         name,

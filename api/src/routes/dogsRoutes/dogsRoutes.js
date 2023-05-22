@@ -12,7 +12,7 @@ dogsRouter.get('/:id', getDogWithId);
 
 dogsRouter.post('/', postDog);
 
-dogsRouter.put('/', putDogs);
+dogsRouter.put('/:id', putDogs);
 
 dogsRouter.delete('/:id', deleteDog); 
 

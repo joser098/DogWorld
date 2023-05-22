@@ -1,8 +1,8 @@
 const { Dog } = require('../../db');
 
 const createNewDog = async ({ name, height, weight, life_span, image, temperaments }) => {
-    if(!name || !height || !weight || !life_span || !image || !temperaments) throw Error('Faltan datos');
-    
+    if (!name || !height || !weight || !life_span || !image || !temperaments) throw Error('Faltan datos');
+
     const newDog = await Dog.create({
         name,
         height,
