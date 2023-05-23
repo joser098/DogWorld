@@ -12,6 +12,7 @@ export const handleChange = (event, setDogToCreate, dogToCreate, setErrors, vali
         ...dogToCreate,
         [name]: value
     })
+    console.log(dogToCreate)
     setErrors(
         validations({
             ...dogToCreate,
@@ -22,6 +23,8 @@ export const handleChange = (event, setDogToCreate, dogToCreate, setErrors, vali
 
 export const handleTempsToShow  = (tempSelected, setTempsToShow, tempsToShow, temperaments) => {
     const nameFound = temperaments.find(temp => temp.id === +tempSelected)
+    if(tempsToShow.includes(` ${nameFound.name}`)) return;
+
     setTempsToShow([...tempsToShow, ` ${nameFound.name}`])
 };
 

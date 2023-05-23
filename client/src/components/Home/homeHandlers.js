@@ -37,21 +37,24 @@ export const firstShow = (allDogs, setCardsToShow) => {
     setCardsToShow([...allDogs].slice(0, cardsPerPage))
 };
 
-export const handleFilter = (value, dispatch) => {
+export const handleFilter = (value, dispatch, setCurrentPage) => {
     if(value === 'API'){ dispatch(filterApi())}
     if(value === 'DB'){ dispatch(filterDb())}
     if(value === 'AD'){ dispatch(getDogs())}
+    setCurrentPage(0)
 };
 
-export const handleOrder = (value, dispatch) => {
+export const handleOrder = (value, dispatch, setCurrentPage) => {
     if(value === 'A'){ dispatch(orderAsc())}
     if(value === 'D'){ dispatch(orderDsc())}
     if(value === 'AxW'){ dispatch(orderAscW())}
     if(value === 'DxW'){ dispatch(orderDscW())}
+    setCurrentPage(0)
 };
 
-export const handleFilterTemps = (value, dispatch) => {
+export const handleFilterTemps = (value, dispatch, setCurrentPage) => {
     dispatch(filterTemps(value))
+    setCurrentPage(0)
 };
 
 

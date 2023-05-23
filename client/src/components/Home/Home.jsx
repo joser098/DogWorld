@@ -38,17 +38,17 @@ const Home = () => {
 
     const handleSelectFilter = (event) => {
         const { value } = event.target;
-        handleFilter(value, dispatch)
+        handleFilter(value, dispatch, setCurrentPage)
     };
 
     const handleTempsFilter = (event) => {
         const  { value } = event.target;
-        handleFilterTemps(value,dispatch);
+        handleFilterTemps(value,dispatch, setCurrentPage);
     };
 
     const handleSelectOrder = (event) => {
         const { value } = event.target;
-        handleOrder(value, dispatch)
+        handleOrder(value, dispatch, setCurrentPage)
     };
 
     return (
