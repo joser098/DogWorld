@@ -1,4 +1,4 @@
-import { SET_USER, LOG_OUT, GET_DOGS, SHOW_RESULT, ORDER_ASC, ORDER_DSC, ORDER_ASC_W, ORDER_DSC_W, FILTER_API, FILTER_DB, NOT_FOUND_MESSAGE, CLEAN_MESSAGE } from './actionsTypes'
+import { SET_USER, LOG_OUT, GET_DOGS, SHOW_RESULT, ORDER_ASC, ORDER_DSC, ORDER_ASC_W, ORDER_DSC_W, FILTER_API, FILTER_DB, NOT_FOUND_MESSAGE, CLEAN_MESSAGE, FILTER_TEMPS } from './actionsTypes'
 import axios from 'axios';
 
 export const setUser = (user) => {
@@ -50,10 +50,14 @@ export const filterDb = () => {
     return { type: FILTER_DB, payload: null }
 };
 
+export const filterTemps = (temps) => {
+    return { type: FILTER_TEMPS, payload: temps }
+};
+
 export const notFound_message = (message) => {
     return { type: NOT_FOUND_MESSAGE, payload: message }
-}
+};
 
 export const clean_message = () => {
     return { type: CLEAN_MESSAGE, payload: null }
-}
+};

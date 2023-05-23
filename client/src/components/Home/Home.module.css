@@ -33,6 +33,10 @@
     background: #fff;
 }
 
+.search {
+    border: none;
+}
+
 .message {
     color: red;
     font-weight: bold;

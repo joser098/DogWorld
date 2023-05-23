@@ -11,6 +11,7 @@ export const ORDER_DSC_W = 'ORDER_DSC_W';
 
 export const FILTER_API = 'FILTER_API';
 export const FILTER_DB = 'FILTER_DB';
+export const FILTER_TEMPS = 'FILTER_TEMPS';
 
 export const NOT_FOUND_MESSAGE = 'NOT_FOUND_MESSAGE'
 export const CLEAN_MESSAGE = 'NOT_FOUND MESSAGE'

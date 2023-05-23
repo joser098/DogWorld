@@ -102,7 +102,7 @@ const Detail = () => {
         <input className={styles.input} onChange={hanldeInputChange} placeholder="min" name="life_span_min" type="number" min='7' max='15' />
         <input className={styles.input} onChange={hanldeInputChange} placeholder="max" name="life_span_max" type="number" min='8' max="20" />
 
-        <button className={styles.updateBtn} disabled={disableSubmit(dataToUptdate)}> Update </button>
+        <button className={styles.updateBtn} disabled={!disableSubmit(dataToUptdate)}> Update </button>
       </form> }
     </div>
   )

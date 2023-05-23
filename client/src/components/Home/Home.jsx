@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { nextHandler, prevHandler, firstShow, handleFilter, handleOrder } from './homeHandlers';
+import { nextHandler, prevHandler, firstShow, handleFilter, handleOrder, getTemperaments, handleFilterTemps } from './homeHandlers';
 import DogCard from '../DogCard/DogCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDogs } from '../../redux/actions';
@@ -12,8 +12,11 @@ const Home = () => {
     const message = useSelector(state => state.message);
     const [cardsToShow, setCardsToShow] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
+    const [temperaments, setTemperaments] = useState([]);
 
-
+    useEffect(() => {
+        getTemperaments(setTemperaments);
+    }, [])
 
     useEffect(() => {
         dispatch(getDogs());
@@ -22,6 +25,7 @@ const Home = () => {
     useEffect(() => {
         firstShow(allDogs, setCardsToShow)
     }, [allDogs])
+
 
 
     const nextButtonHandler = () => {
@@ -37,6 +41,11 @@ const Home = () => {
         handleFilter(value, dispatch)
     };
 
+    const handleTempsFilter = (event) => {
+        const  { value } = event.target;
+        handleFilterTemps(value,dispatch);
+    };
+
     const handleSelectOrder = (event) => {
         const { value } = event.target;
         handleOrder(value, dispatch)
@@ -50,6 +59,14 @@ const Home = () => {
                     <option className={styles.option} value="AD">All Dogs</option>
                     <option className={styles.option} value="API">Dogs from api</option>
                     <option className={styles.option} value="DB">Dogs from DB</option>
+                </select>
+
+                <select className={styles.select} onChange={handleTempsFilter}>
+                    { temperaments.map(temp => {
+                            return (
+                                <option className={styles.option} value={temp.name}> {temp.name} </option>
+                            )
+                        })}
                 </select>
 
                 <span className={styles.span}>Order by:</span>

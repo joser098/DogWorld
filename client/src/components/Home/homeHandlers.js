@@ -1,5 +1,11 @@
+import axios from "axios";
+import { filterApi, filterDb, filterTemps, getDogs, orderAsc, orderAscW, orderDsc, orderDscW } from '../../redux/actions';
 
-import { filterApi, filterDb, getDogs, orderAsc, orderAscW, orderDsc, orderDscW } from '../../redux/actions';
+export const getTemperaments = async (setTemperaments) => {
+    const {data} = await axios(`http://localhost:3001/temperaments`)
+
+    setTemperaments(data);
+};
 
 export const cardsPerPage = 8;
 
@@ -42,6 +48,10 @@ export const handleOrder = (value, dispatch) => {
     if(value === 'D'){ dispatch(orderDsc())}
     if(value === 'AxW'){ dispatch(orderAscW())}
     if(value === 'DxW'){ dispatch(orderDscW())}
+};
+
+export const handleFilterTemps = (value, dispatch) => {
+    dispatch(filterTemps(value))
 };
 
 
