@@ -12,7 +12,7 @@ export const handleChange = (event, setDogToCreate, dogToCreate, setErrors, vali
         ...dogToCreate,
         [name]: value
     })
-    console.log(dogToCreate)
+    
     setErrors(
         validations({
             ...dogToCreate,
@@ -28,7 +28,7 @@ export const handleTempsToShow  = (tempSelected, setTempsToShow, tempsToShow, te
     setTempsToShow([...tempsToShow, ` ${nameFound.name}`])
 };
 
-export const handleSubmitButton = async (dogToCreate, setDogToCreate, setTempsToShow) => {
+export const handleSubmitButton = async (dogToCreate, setDogToCreate, setTempsToShow, toast) => {
     try {
         const newDog = {
             name: dogToCreate.name[0].toUpperCase() + dogToCreate.name.slice(1).toLowerCase(),
@@ -40,6 +40,17 @@ export const handleSubmitButton = async (dogToCreate, setDogToCreate, setTempsTo
         };
     
         const { data } = await axios.post('http://localhost:3001/dogs', newDog);
+
+        toast.success('Created successfully!', {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
 
         setDogToCreate({
             name: '',
@@ -55,8 +66,16 @@ export const handleSubmitButton = async (dogToCreate, setDogToCreate, setTempsTo
         setTempsToShow([])
 
     } catch (error) {
-        console.log(error)
+        toast.error('Sorry, something went wrong!', {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
     }
-
 };
 

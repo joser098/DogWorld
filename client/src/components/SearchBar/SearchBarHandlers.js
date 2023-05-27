@@ -6,16 +6,50 @@ export const handleInput = (event, setNameToSearch) => {
     setNameToSearch(value)
 };
 
-export const handleSearch = async (nameToSearch, dispatch, showResult, setNametoSearch) => {
+export const handleSearch = async (nameToSearch, dispatch, showResult, toast) => {
     try {
-        const { data } = await axios(`http://localhost:3001/dogs/?name=${nameToSearch}`);
+        const response = await toast.promise(
+            axios(`http://localhost:3001/dogs/?name=${nameToSearch}`),
+            {
+              pending: `🐶 Looking for ${nameToSearch} dogs`,
+            }
+        );
+        if(typeof response.data === 'string'){
+            toast.warn(`🐶 ${response.data}`, {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
+            return;
+        };
 
-         dispatch(showResult(data)) 
+        toast.success(`🐶 Here are the ${nameToSearch} dogs`, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+
+        dispatch(showResult(response.data))
     } catch (error) {
-        dispatch(notFound_message('Sorry, dogs not found'))
-
-        setTimeout(() => {
-            dispatch(clean_message())
-        }, "4000")
+        toast.error(error, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "dark",
+            })
     }
 };

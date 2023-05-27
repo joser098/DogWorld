@@ -12,18 +12,18 @@ export const validation = (userData) => {
     };
 
     if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(userData.email)){
-        errors.email = "Debe ser un correo electrónico valido"
+        errors.email = "Should be a valid email"
     }
     if(!userData.email) {
-        errors.mail = "Debe ingresar un correo electronico"
+        errors.mail = "Should add an email"
     }
 
     if(userData.email.length > 35) {
-         errors.mail = "No puede contener mas de 35 caracteres"
+         errors.mail = "Can not contain more than 35 characters"
         }
 
     if(userData.password.length < 6 || userData.password.length > 10) {
-         errors.password = "Debe contener entre 6 y 10 caracteres"
+         errors.password = "Should contains between 6 and 10 characters"
         };
 
         return errors;

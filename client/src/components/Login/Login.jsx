@@ -42,7 +42,7 @@ const Login = () => {
                         className={styles.input} />
                     {errors.email && <p className={styles.errors}>{errors.email}</p>}
 
-                    <input type="text"
+                    <input type="password"
                         name="password"
                         placeholder="Password"
                         value={userData.password}

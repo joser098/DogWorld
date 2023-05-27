@@ -1,13 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { handleInput, handleSearch } from "./SearchBarHandlers";
 import { showResult } from '../../redux/actions';
 import styles from './SearchBar.module.css';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SearchBar = () => {
     const dispatch = useDispatch();
-    const dogsFound = useSelector(state => state.dogsToShow);
     const [nameToSearch, setNametoSearch] = useState('');
 
     const handleInputBar = (event) => {
@@ -16,7 +16,7 @@ const SearchBar = () => {
 
     const handleSearchButton = (event) => {
         event.preventDefault();
-        handleSearch(nameToSearch, dispatch, showResult);
+        handleSearch(nameToSearch, dispatch, showResult, toast);
         setNametoSearch('');
     };
 
@@ -31,6 +31,7 @@ const SearchBar = () => {
             />
 
             <button className={styles.btn} onClick={handleSearchButton}>🔍</button>
+            <ToastContainer />
         </div>
     )
 };

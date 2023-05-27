@@ -1,4 +1,4 @@
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getDog, handleDelete, handleEdit, handleChange, disableSubmit } from './detailHandlers';
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,7 +7,7 @@ import styles from './Detail.module.css';
 const Detail = () => {
   const [view, setView] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { id } = useParams();
   const [dog, setDog] = useState([]);
   const message = useSelector(state => state.message);
@@ -22,9 +22,6 @@ const Detail = () => {
     image: ''
   })
 
-  const [errors, setErrors] = useState('');
-
-
   useEffect(() => {
     getDog(id, setDog, dispatch, navigate);
     return setDog([])
@@ -32,7 +29,7 @@ const Detail = () => {
 
   const hanldeInputChange = (event) => {
     event.preventDefault();
-    handleChange(event, dataToUptdate, setDataToUptdate, setErrors)
+    handleChange(event, dataToUptdate, setDataToUptdate)
   }
 
   const handleDeleteBtn = (event) => {
@@ -48,7 +45,7 @@ const Detail = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     handleEdit(id, dispatch, dataToUptdate, setView, navigate)
-  } 
+  }
 
   return (
     <div key={dog[0]?.id || dog.id} className={styles.container}>
@@ -66,6 +63,8 @@ const Detail = () => {
             <span> {dog[0]?.name || dog.name} </span>
           </h4>
 
+          <h4 className={styles.name} >Origin: <span>{dog[0]?.origin}</span></h4>
+
           <h4 className={styles.height}>Height:
             <span> {dog[0]?.height?.metric || dog.height?.metric} cm </span>
           </h4>
@@ -82,27 +81,27 @@ const Detail = () => {
             <span> {dog[0]?.life_span || dog.life_span}</span>
           </h4>
           {dog.id && <button className={styles.deleteBtn} onClick={handleDeleteBtn}>DELETE</button>}
-          {dog.id && <button className={styles.editBtn} onClick={handleEditBtn}>EDIT</button>} 
+          {dog.id && <button className={styles.editBtn} onClick={handleEditBtn}>EDIT</button>}
         </div>
 
       </div>
       {message && <span className={styles.message} >{message}</span>}
       {view && <form className={styles.form} onSubmit={handleSubmit} >
         <label className={styles.labelInfo}> Complete only info to update </label>
-        <input className={styles.input} onChange={hanldeInputChange} type="text" placeholder='New name' name='name'/>
-        
-        <input className={styles.input} onChange={hanldeInputChange} placeholder="min height" name="height_min" type="number" min='15' max='110' />
-        <input className={styles.input} onChange={hanldeInputChange} placeholder="max heigth" name="height_max" type="number" min='15' max="110" />
+        <input className={styles.input} onChange={hanldeInputChange} type="text" placeholder='Name' name='name'/>
 
-        <input className={styles.input} onChange={hanldeInputChange} placeholder="min weight" name="weight_min" type="number" min='15' max='110' />
-        <input className={styles.input} onChange={hanldeInputChange} placeholder="max weigth" name="weight_max" type="number" min='15' max="110" />
+        <input className={styles.input} onChange={hanldeInputChange} placeholder="Min height" name="height_min" type="number" min='15' max='110' />
+        <input className={styles.input} onChange={hanldeInputChange} placeholder="Max heigth" name="height_max" type="number" min='15' max="110" />
 
-        <input className={styles.input} onChange={hanldeInputChange} name="image" type="url" placeholder="url image" />
+        <input className={styles.input} onChange={hanldeInputChange} placeholder="Min weight" name="weight_min" type="number" min='15' max='110' />
+        <input className={styles.input} onChange={hanldeInputChange} placeholder="Max weigth" name="weight_max" type="number" min='15' max="110" />
 
-        <input className={styles.input} onChange={hanldeInputChange} placeholder="min" name="life_span_min" type="number" min='7' max='15' />
-        <input className={styles.input} onChange={hanldeInputChange} placeholder="max" name="life_span_max" type="number" min='8' max="20" />
+        <input className={styles.input} onChange={hanldeInputChange} name="image" type="url" placeholder="Image url" />
 
-        <button className={styles.updateBtn} disabled={!disableSubmit(dataToUptdate)}> Update </button>
+        <input className={styles.input} onChange={hanldeInputChange} placeholder="Min life span" name="life_span_min" type="number" min='7' max='15' />
+        <input className={styles.input} onChange={hanldeInputChange} placeholder="Max life span" name="life_span_max" type="number" min='8' max="20" />
+
+        <button className={styles.updateBtn}> Update </button>
       </form> }
     </div>
   )

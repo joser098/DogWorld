@@ -7,7 +7,7 @@ const getDogs = async (req, res) => {
       const { name } = req.query;
       if (name) {
          const dogName = await getAllOrByName(name);
-         // const dogImages = await  getDogsImages(name);
+         
          return res.status(200).json(dogName);
       }
 

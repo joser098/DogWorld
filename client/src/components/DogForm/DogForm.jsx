@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { getTemperaments, handleChange, handleTempsToShow, handleSubmitButton, disableSubmit } from "./dogFormHandlers";
+import { getTemperaments, handleChange, handleTempsToShow, handleSubmitButton } from "./dogFormHandlers";
 import { validations } from './validations';
 import styles from './DogForm.module.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DogForm = () => {
     const [tempSelected, setTempSelected] = useState('')
@@ -29,7 +31,10 @@ const DogForm = () => {
 
         setDogToCreate((dogToCreate) => ({
             ...dogToCreate,
-            temperaments: [...dogToCreate.temperaments, tempSelected]
+            temperaments:
+            dogToCreate.temperaments.includes(tempSelected) 
+            ?[...dogToCreate.temperaments]
+            :[...dogToCreate.temperaments, tempSelected]
         }));
 
         handleTempsToShow(tempSelected, setTempsToShow, tempsToShow, temperaments);
@@ -37,7 +42,7 @@ const DogForm = () => {
 
     const handleSubmitCreateButton = (event) => {
         event.preventDefault();
-        handleSubmitButton(dogToCreate, setDogToCreate, setTempsToShow);
+        handleSubmitButton(dogToCreate, setDogToCreate, setTempsToShow, toast);
     };
 
 
@@ -103,6 +108,7 @@ const DogForm = () => {
                         : null}
                 </div>
             </form>
+            <ToastContainer/>
         </div>
     )
 };

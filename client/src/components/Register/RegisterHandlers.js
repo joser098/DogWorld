@@ -15,17 +15,38 @@ export const handleChange = (event, userData, setUserData, setErrors) => {
     )
 };
 
-export const handleSubmit = async (event, userData, navigate) => {
+export const handleSubmit = async (event, userData, navigate, toast) => {
     try {
         event.preventDefault();
     
         const { data } = await axios.post('http://localhost:3001/user', userData);
+        toast.success(data.message, {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+
+        setTimeout(() => {
+                data.message === 'registered successffuly'
+                ?  navigate('/')
+                :  navigate('/register')
+        }, 3000)
         
-        data.message === 'registered successffuly'
-        ?  navigate('/')
-        :  navigate('/register')
     } catch (error) {
-        console.log(error)
-        // window.alert('Sorry something went wrong, try again please')
+        toast.error('This email is allready registered', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
     }
 }

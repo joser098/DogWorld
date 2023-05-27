@@ -4,7 +4,8 @@ import DogCard from '../DogCard/DogCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDogs } from '../../redux/actions';
 import styles from './Home.module.css';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -87,9 +88,9 @@ const Home = () => {
                             <DogCard
                                 key={id}
                                 id={id}
-                                image={image.url}
+                                image={image?.url}
                                 name={name}
-                                weight={weight.metric}
+                                weight={weight?.metric}
                                 temperamet={temperament} />
                         )
                     })
@@ -99,6 +100,7 @@ const Home = () => {
             <button className={styles.btn} onClick={prevButtonHandler}> ◀ Prev </button>
             <label htmlFor="current">{currentPage}</label>
             <button className={styles.btn} onClick={nextButtonHandler}> Next ▶ </button>
+            <ToastContainer/>
         </div>
     )
 };

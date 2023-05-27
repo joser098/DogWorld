@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import { handleChange, handleSubmit } from "./RegisterHandlers";
-import styles from './Register.module.css'
+import styles from './Register.module.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
@@ -23,7 +25,7 @@ const Register = () => {
     };
 
     const handleButtonSubmit = async (event) => {
-        await handleSubmit(event, userData, navigate);
+        await handleSubmit(event, userData, navigate, toast);
     }
 
 
@@ -69,6 +71,7 @@ const Register = () => {
                     <a className={styles.ref} href="/">Log In</a>
                 </form>
             </div>
+            <ToastContainer/>
         </div>
     )
 };
