@@ -2,7 +2,7 @@ import axios from "axios";
 import { filterApi, filterDb, filterTemps, getDogs, orderAsc, orderAscW, orderDsc, orderDscW } from '../../redux/actions';
 
 export const getTemperaments = async (setTemperaments) => {
-    const {data} = await axios(`http://localhost:3001/temperaments`)
+    const {data} = await axios(`/temperaments`)
 
     setTemperaments(data);
 };

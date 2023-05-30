@@ -3,7 +3,7 @@ import { notFound_message, clean_message } from '../../redux/actions';
 // import { validations } from './validations';
 
 export const getDog = async (id, setDog, dispatch, navigate) => { try {
-    const { data } = await axios(`http://localhost:3001/dogs/${id}`);  
+    const { data } = await axios(`/dogs/${id}`);  
     setDog(data);
 } catch (error) {
    dispatch(notFound_message(`There is not dog with id: ${id}`))
@@ -28,7 +28,7 @@ export const handleChange = (event, dataToUptade, setDataToUpdate, setErrors) =>
 
 export const handleDelete = async (id, dispatch, navigate) => {
   try {
-   const { data } = await axios.delete(`http://localhost:3001/dogs/${id}`)
+   const { data } = await axios.delete(`/dogs/${id}`)
 
    dispatch(notFound_message(data.message))
 
@@ -56,7 +56,7 @@ export const handleEdit = async (id, dispatch, dataToUptadte, setView, navigate)
       image: `${dataToUptadte.image}`
   };
 
-    const { data } = await axios.put(`http://localhost:3001/dogs/${id}`, newDataDog);
+    const { data } = await axios.put(`/dogs/${id}`, newDataDog);
 
     dispatch(notFound_message(data.message))
 

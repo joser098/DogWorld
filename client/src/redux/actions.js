@@ -12,7 +12,7 @@ export const logOut = () => {
 export const getDogs = () => {
     return async (dispatch) => {
         try {
-            const { data } = await axios(`http://localhost:3001/dogs`);
+            const { data } = await axios(`/dogs`);
 
             return dispatch({ type: GET_DOGS, payload: data });
         } catch (error) {

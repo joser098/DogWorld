@@ -9,7 +9,7 @@ export const handleInput = (event, setNameToSearch) => {
 export const handleSearch = async (nameToSearch, dispatch, showResult, toast, navigate) => {
     try {
         const response = await toast.promise(
-            axios(`http://localhost:3001/dogs/?name=${nameToSearch}`),
+            axios(`/dogs/?name=${nameToSearch}`),
             {
               pending: `🐶 Looking for ${nameToSearch} dogs`,
             }

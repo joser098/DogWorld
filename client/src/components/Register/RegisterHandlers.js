@@ -19,7 +19,7 @@ export const handleSubmit = async (event, userData, navigate, toast) => {
     try {
         event.preventDefault();
     
-        const { data } = await axios.post('http://localhost:3001/user', userData);
+        const { data } = await axios.post('/user', userData);
         toast.success(data.message, {
             position: "top-center",
             autoClose: 2000,

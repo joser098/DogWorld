@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getTemperaments = async (setTemperaments) => {
-    const {data} = await axios(`http://localhost:3001/temperaments`)
+    const {data} = await axios(`/temperaments`)
 
     setTemperaments(data);
 };
@@ -39,7 +39,7 @@ export const handleSubmitButton = async (dogToCreate, setDogToCreate, setTempsTo
             temperaments: dogToCreate.temperaments
         };
     
-        const { data } = await axios.post('http://localhost:3001/dogs', newDog);
+        const { data } = await axios.post('/dogs', newDog);
 
         toast.success('Created successfully!', {
             position: "top-center",
