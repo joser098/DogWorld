@@ -72,8 +72,8 @@ const Home = () => {
 
                 <span className={styles.span}>Order by:</span>
                 <select className={styles.select} onChange={handleSelectOrder}>
-                    <option className={styles.option} value="A">Ascendente</option>
-                    <option className={styles.option} value="D">Descendente</option>
+                    <option className={styles.option} value="A">Ascending</option>
+                    <option className={styles.option} value="D">Descending</option>
                     <option className={styles.option} value="AxW">Min weight</option>
                     <option className={styles.option} value="DxW">Max weight</option>
                 </select>

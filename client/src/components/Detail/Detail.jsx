@@ -63,7 +63,7 @@ const Detail = () => {
             <span> {dog[0]?.name || dog.name} </span>
           </h4>
 
-          <h4 className={styles.name} >Origin: <span>{dog[0]?.origin}</span></h4>
+          {dog[0]?.origin && <h4 className={styles.name} >Origin: <span>{dog[0]?.origin}</span></h4>}
 
           <h4 className={styles.height}>Height:
             <span> {dog[0]?.height?.metric || dog.height?.metric} cm </span>
@@ -102,6 +102,9 @@ const Detail = () => {
         <input className={styles.input} onChange={hanldeInputChange} placeholder="Max life span" name="life_span_max" type="number" min='8' max="20" />
 
         <button className={styles.updateBtn}> Update </button>
+
+        <marquee className={styles.marquee}>REMENBER:
+           To update weight, height or life span you should update min and max</marquee>
       </form> }
     </div>
   )

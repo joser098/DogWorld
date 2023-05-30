@@ -87,13 +87,13 @@ const reducer = (state = initialState, { type, payload }) => {
                 dogsToShow: allDogsCopy.filter(dog => typeof dog.id === 'number')
             };
         case FILTER_DB:
-            const allDogsCopy1 = [...state.dogsToShow]
+            const allDogsCopy1 = [...state.allDogs]
             return {
                 ...state,
                 dogsToShow: allDogsCopy1.filter(dog => /([a-zA-Z]+([0-9]+[a-zA-Z]+)+)/.test(dog.id))
             };
         case FILTER_TEMPS:
-            const allDogsCopy2 = [...state.dogsToShow]
+            const allDogsCopy2 = [...state.allDogs]
             return {
                 ...state,
                 dogsToShow: allDogsCopy2.filter(dog => dog?.temperament?.includes(payload))

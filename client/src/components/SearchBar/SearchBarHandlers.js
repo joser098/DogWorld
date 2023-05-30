@@ -6,7 +6,7 @@ export const handleInput = (event, setNameToSearch) => {
     setNameToSearch(value)
 };
 
-export const handleSearch = async (nameToSearch, dispatch, showResult, toast) => {
+export const handleSearch = async (nameToSearch, dispatch, showResult, toast, navigate) => {
     try {
         const response = await toast.promise(
             axios(`http://localhost:3001/dogs/?name=${nameToSearch}`),

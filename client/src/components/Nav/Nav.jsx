@@ -17,7 +17,10 @@ const Nav = () => {
         <div className={styles.background}>
 
             <div className={styles.container}>
+
+                <NavLink to='home'>
                 <img className={styles.logo} src={img} alt="logo" />
+                </NavLink>
 
                 <SearchBar />
 

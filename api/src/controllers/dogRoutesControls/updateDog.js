@@ -1,4 +1,5 @@
 const { Dog } = require('../../db');
+const toUpperCase = require('../../helper/toUpperCase');
 
 const updateDog = async (id, name, height, weight, life_span, image) => {
     if (!id) throw Error('Need Id to uptdate');
@@ -7,7 +8,7 @@ const updateDog = async (id, name, height, weight, life_span, image) => {
 
     if (dogToUpdate === null) throw Error('Id not Found');
     
-    dogToUpdate.name = name || dogToUpdate.name;
+    dogToUpdate.name = name[0]?.toUpperCase() + name?.slice(1).toLowerCase() || dogToUpdate.name;
     dogToUpdate.height = height.length < 4 ? dogToUpdate.height : height;
     dogToUpdate.weight = weight.length < 4 ? dogToUpdate.weight : weight ;
     dogToUpdate.life_span = life_span.length < 10 ? dogToUpdate.life_span : life_span;

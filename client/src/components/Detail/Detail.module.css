@@ -126,6 +126,7 @@ span {
 }
 
 .form{
+    width: 75%;
     padding: 8px;
     margin: 10px;
     background: #373630;
@@ -155,4 +156,8 @@ span {
     border-radius: 4px;
     background:  #68747c ;
     cursor: pointer;
+}
+
+.marquee {
+    color: #fff;
 }

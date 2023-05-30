@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { notFound_message, clean_message } from '../../redux/actions';
-import { validations } from './validations';
+// import { validations } from './validations';
 
 export const getDog = async (id, setDog, dispatch, navigate) => { try {
     const { data } = await axios(`http://localhost:3001/dogs/${id}`);  
@@ -24,13 +24,6 @@ export const handleChange = (event, dataToUptade, setDataToUpdate, setErrors) =>
     ...dataToUptade,
     [name]:value
   })
-  
-  setErrors(
-    validations({
-      ...dataToUptade,
-      [name]:value
-    })
-  )
 }
 
 export const handleDelete = async (id, dispatch, navigate) => {
