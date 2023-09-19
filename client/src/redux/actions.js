@@ -1,3 +1,4 @@
+import newGetDogs from '../help/newGetDogs';
 import { SET_USER, LOG_OUT, GET_DOGS, SHOW_RESULT, ORDER_ASC, ORDER_DSC, ORDER_ASC_W, ORDER_DSC_W, FILTER_API, FILTER_DB, NOT_FOUND_MESSAGE, CLEAN_MESSAGE, FILTER_TEMPS } from './actionsTypes'
 import axios from 'axios';
 
@@ -12,9 +13,10 @@ export const logOut = () => {
 export const getDogs = () => {
     return async (dispatch) => {
         try {
-            const { data } = await axios(`/dogs`);
+            // const { data } = await axios(`/dogs`);
+            const response = await newGetDogs()
 
-            return dispatch({ type: GET_DOGS, payload: data });
+            return dispatch({ type: GET_DOGS, payload: response});
         } catch (error) {
             return { type: GET_DOGS, payload: 'error en action' }
         }
